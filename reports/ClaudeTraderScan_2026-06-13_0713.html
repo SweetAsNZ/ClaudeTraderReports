@@ -33,6 +33,10 @@ em { color: #555; }
 .ind-bad    { background: #f8d7da; color: #000; }   /* bad    */
 .ind-warn   { background: #fff3cd; color: #000; }   /* warning*/
 .ind-normal { background: #ffffff; color: #000; border: 1px solid #d0d7e2; } /* normal */
+/* Highlighter badges for [GREEN]/[RED]/[YELLOW] report markup */
+.hl-green  { background: #d4edda; color: #000; padding: 1px 5px; border-radius: 3px; }
+.hl-red    { background: #f8d7da; color: #000; padding: 1px 5px; border-radius: 3px; }
+.hl-yellow { background: #fff3cd; color: #000; padding: 1px 5px; border-radius: 3px; }
 @media (prefers-color-scheme: dark) {
   body { background: #ffffff; }  /* force light — keeps email clients consistent */
 }
@@ -68,27 +72,27 @@ em { color: #555; }
 <strong>Suggested action:</strong> Buy Soft</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD bullish crossover just occurred</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 54 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD bullish crossover just occurred</span></li>
+<li><span class="hl-yellow">RSI 54 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (62/56) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +24%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">3-month momentum +24%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Revenue growing 78% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Earnings growing 475% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Healthy profit margin (55%)</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 13)</span></li>
+<li><span class="hl-green">Revenue growing 78% YoY</span></li>
+<li><span class="hl-green">Earnings growing 475% YoY</span></li>
+<li><span class="hl-green">Healthy profit margin (55%)</span></li>
+<li><span class="hl-green">Low debt load</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 13)</span></li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 68% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.30 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.30 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 67% of the time (54 events)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 12 buy / 2 hold / 0 sell (14 covering)</span></li>
+<li><span class="hl-green">Analysts bullish: 12 buy / 2 hold / 0 sell (14 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
@@ -101,26 +105,26 @@ em { color: #555; }
 <strong>Suggested action:</strong> Buy Soft</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD bullish crossover just occurred</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 62 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD bullish crossover just occurred</span></li>
+<li><span class="hl-yellow">RSI 62 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (52/40) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +7%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">3-month momentum +7%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Revenue growing 38% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Earnings growing 40% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Healthy profit margin (20%)</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 6)</span></li>
+<li><span class="hl-green">Revenue growing 38% YoY</span></li>
+<li><span class="hl-green">Earnings growing 40% YoY</span></li>
+<li><span class="hl-green">Healthy profit margin (20%)</span></li>
+<li><span class="hl-green">Low debt load</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 6)</span></li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 61% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.40 across 10 headlines)</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 9 buy / 2 hold / 0 sell (11 covering)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.40 across 10 headlines)</span></li>
+<li><span class="hl-green">Analysts bullish: 9 buy / 2 hold / 0 sell (11 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
@@ -133,28 +137,28 @@ em { color: #555; }
 <strong>Suggested action:</strong> Buy Soft</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 52 — bullish but not overbought</span></li>
+<li><span class="hl-yellow">RSI 52 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (37/36) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Volume expanding (1.3x recent average) — accumulation</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +34%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">Volume expanding (1.3x recent average) — accumulation</span></li>
+<li><span class="hl-green">3-month momentum +34%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Revenue growing 37% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Earnings growing 110% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Healthy profit margin (26%)</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 28)</span></li>
+<li><span class="hl-green">Revenue growing 37% YoY</span></li>
+<li><span class="hl-green">Earnings growing 110% YoY</span></li>
+<li><span class="hl-green">Healthy profit margin (26%)</span></li>
+<li><span class="hl-green">Low debt load</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 28)</span></li>
 <li>Current with SEC reporting (latest 10-Q 2026-05-20)</li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 70% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.33 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.33 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 71% of the time (48 events)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 33 buy / 6 hold / 0 sell (39 covering)</span></li>
+<li><span class="hl-green">Analysts bullish: 33 buy / 6 hold / 0 sell (39 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
@@ -167,28 +171,28 @@ em { color: #555; }
 <strong>Suggested action:</strong> Buy Soft</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD histogram positive and rising</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 53 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD histogram positive and rising</span></li>
+<li><span class="hl-yellow">RSI 53 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (46/45) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +10%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">3-month momentum +10%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Revenue growing 24% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Earnings growing 56% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Healthy profit margin (100%)</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 14)</span></li>
+<li><span class="hl-green">Revenue growing 24% YoY</span></li>
+<li><span class="hl-green">Earnings growing 56% YoY</span></li>
+<li><span class="hl-green">Healthy profit margin (100%)</span></li>
+<li><span class="hl-green">Low debt load</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 14)</span></li>
 <li>Current with SEC reporting (latest 10-Q 2026-05-07)</li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 55% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.29 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.29 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 75% of the time (64 events)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 9 buy / 4 hold / 0 sell (13 covering)</span></li>
+<li><span class="hl-green">Analysts bullish: 9 buy / 4 hold / 0 sell (13 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
@@ -201,28 +205,28 @@ em { color: #555; }
 <strong>Suggested action:</strong> Buy Soft</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD bullish crossover just occurred</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 57 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD bullish crossover just occurred</span></li>
+<li><span class="hl-yellow">RSI 57 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (70/68) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +33%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">3-month momentum +33%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Revenue growing 100% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Earnings growing 107% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Healthy profit margin (16%)</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 15)</span></li>
+<li><span class="hl-green">Revenue growing 100% YoY</span></li>
+<li><span class="hl-green">Earnings growing 107% YoY</span></li>
+<li><span class="hl-green">Healthy profit margin (16%)</span></li>
+<li><span class="hl-green">Low debt load</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 15)</span></li>
 <li>Current with SEC reporting (latest 10-Q 2026-05-06)</li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 60% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.21 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.21 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 68% of the time (44 events)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 10 buy / 5 hold / 0 sell (15 covering)</span></li>
+<li><span class="hl-green">Analysts bullish: 10 buy / 5 hold / 0 sell (15 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
@@ -240,25 +244,25 @@ em { color: #555; }
 <strong>Suggested action:</strong> Buy Soft</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD histogram positive and rising</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 57 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD histogram positive and rising</span></li>
+<li><span class="hl-yellow">RSI 57 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (52/46) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Volume expanding (1.3x recent average) — accumulation</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">Volume expanding (1.3x recent average) — accumulation</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Earnings growing 739% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 20)</span></li>
+<li><span class="hl-green">Earnings growing 739% YoY</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 20)</span></li>
 <li>Current with SEC reporting (latest 10-Q 2026-06-10)</li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 75% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.18 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.18 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 77% of the time (56 events)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 7 buy / 1 hold / 0 sell (8 covering)</span></li>
+<li><span class="hl-green">Analysts bullish: 7 buy / 1 hold / 0 sell (8 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
@@ -271,26 +275,26 @@ em { color: #555; }
 <strong>Suggested action:</strong> Buy Soft</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD bullish crossover just occurred</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 58 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD bullish crossover just occurred</span></li>
+<li><span class="hl-yellow">RSI 58 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (59/57) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +21%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">3-month momentum +21%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Earnings growing 43% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 19)</span></li>
+<li><span class="hl-green">Earnings growing 43% YoY</span></li>
+<li><span class="hl-green">Low debt load</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 19)</span></li>
 <li>Current with SEC reporting (latest 10-Q 2026-05-01)</li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 57% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.27 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.27 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 75% of the time (48 events)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 9 buy / 1 hold / 0 sell (10 covering)</span></li>
+<li><span class="hl-green">Analysts bullish: 9 buy / 1 hold / 0 sell (10 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
@@ -303,26 +307,26 @@ em { color: #555; }
 <strong>Suggested action:</strong> Buy Soft</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD bullish crossover just occurred</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 58 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD bullish crossover just occurred</span></li>
+<li><span class="hl-yellow">RSI 58 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (76/68) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +9%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">3-month momentum +9%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Earnings growing 15% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Healthy profit margin (15%)</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 20)</span></li>
+<li><span class="hl-green">Earnings growing 15% YoY</span></li>
+<li><span class="hl-green">Healthy profit margin (15%)</span></li>
+<li><span class="hl-green">Low debt load</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 20)</span></li>
 <li>Current with SEC reporting (latest 10-Q 2026-05-07)</li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 58% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.21 across 10 headlines)</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 6 buy / 3 hold / 0 sell (9 covering)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.21 across 10 headlines)</span></li>
+<li><span class="hl-green">Analysts bullish: 6 buy / 3 hold / 0 sell (9 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
@@ -342,29 +346,29 @@ em { color: #555; }
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 52 — bullish but not overbought</span></li>
+<li><span class="hl-yellow">RSI 52 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (48/44) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Volume expanding (1.5x recent average) — accumulation</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +36%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">Volume expanding (1.5x recent average) — accumulation</span></li>
+<li><span class="hl-green">3-month momentum +36%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
+<li><span class="hl-green">Low debt load</span></li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 78% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.44 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.44 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 82% of the time (44 events)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Analysts bullish: 6 buy / 1 hold / 0 sell (7 covering)</span></li>
+<li><span class="hl-green">Analysts bullish: 6 buy / 1 hold / 0 sell (7 covering)</span></li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
-<li><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">MACD histogram negative and falling</span></li>
-<li><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">Unprofitable (negative margins)</span></li>
-<li><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">Negative forward earnings</span></li>
+<li><span class="hl-red">MACD histogram negative and falling</span></li>
+<li><span class="hl-red">Unprofitable (negative margins)</span></li>
+<li><span class="hl-red">Negative forward earnings</span></li>
 </ul>
 <h2>2. CAVA — score 71.2/100 (short-term high growth: days–weeks, high-risk)</h2>
 <p><strong>CAVA Group, Inc. Common Stock</strong> | Consumer Cyclical / Restaurants | Close $88.25 | fwd P/E 116.7 | Avg vol 3.5M sh/day (~$275M/day)</p>
@@ -375,28 +379,28 @@ em { color: #555; }
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD histogram positive and rising</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 64 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD histogram positive and rising</span></li>
+<li><span class="hl-yellow">RSI 64 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (70/46) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +10%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">3-month momentum +10%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Revenue growing 32% YoY</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Low debt load</span></li>
+<li><span class="hl-green">Revenue growing 32% YoY</span></li>
+<li><span class="hl-green">Low debt load</span></li>
 <li>Current with SEC reporting (latest 10-Q 2026-05-20)</li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 72% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.27 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.27 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 68% of the time (47 events)</li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
-<li><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">Earnings declining (-9% YoY)</span></li>
+<li><span class="hl-red">Earnings declining (-9% YoY)</span></li>
 <li>Rich valuation (fwd P/E 117)</li>
 </ul>
 <h2>3. AAP — score 66.3/100 (short-term high growth: days–weeks, high-risk)</h2>
@@ -408,28 +412,28 @@ em { color: #555; }
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">MACD histogram positive and rising</span></li>
-<li><span style="background:#fff3cd; color:#000; padding:1px 5px; border-radius:3px;">RSI 59 — bullish but not overbought</span></li>
+<li><span class="hl-green">MACD histogram positive and rising</span></li>
+<li><span class="hl-yellow">RSI 59 — bullish but not overbought</span></li>
 <li>Stochastic %K above %D (76/74) with room to run</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Volume expanding (1.4x recent average) — accumulation</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">3-month momentum +15%</span></li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Near (but not at) 52-week high — breakout setup</span></li>
+<li><span class="hl-green">Uptrend confirmed: price &gt; SMA50 &gt; SMA200</span></li>
+<li><span class="hl-green">Volume expanding (1.4x recent average) — accumulation</span></li>
+<li><span class="hl-green">3-month momentum +15%</span></li>
+<li><span class="hl-green">Near (but not at) 52-week high — breakout setup</span></li>
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Reasonable valuation (fwd P/E 15)</span></li>
+<li><span class="hl-green">Reasonable valuation (fwd P/E 15)</span></li>
 <li>Current with SEC reporting (latest 10-Q 2026-05-21)</li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
 <li>ML model estimates 70% chance of +10% within 3 months (model's recent out-of-sample precision: 73%)</li>
-<li><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">Positive news sentiment (+0.19 across 10 headlines)</span></li>
+<li><span class="hl-green">Positive news sentiment (+0.19 across 10 headlines)</span></li>
 <li>Historically, similar signals on this stock hit +10% within 3 months 65% of the time (51 events)</li>
 </ul>
 <p><strong>Negative indications / risks:</strong></p>
 <ul>
-<li><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">Earnings declining (-2% YoY)</span></li>
+<li><span class="hl-red">Earnings declining (-2% YoY)</span></li>
 <li>High leverage (D/E 255%)</li>
 </ul>
 <hr />
@@ -537,483 +541,493 @@ em { color: #555; }
 </thead>
 <tbody>
 <tr>
-<td>BB</td>
-<td>82/100</td>
-<td>2026-06-27 (0d)</td>
-<td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
-<td>$11.40 / $7.98 / $12.54</td>
+<td>360.AX</td>
+<td>73/100</td>
+<td>2026-06-17 (15d)</td>
+<td>2×</td>
+<td><span class="hl-green">+2.4%</span></td>
+<td><span class="hl-red">-2.7%</span></td>
+<td><span class="hl-green">+3.3%</span> (still open)</td>
+<td>A$22.77 / A$15.94 / A$25.05</td>
 </tr>
 <tr>
-<td>ATEX</td>
-<td>83/100</td>
-<td>2026-06-27 (0d)</td>
+<td>4DX.AX</td>
+<td>58/100</td>
+<td>2026-07-02 (0d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
-<td>$89.67 / $62.77 / $98.64</td>
-</tr>
-<tr>
-<td>TNGX</td>
-<td>70/100</td>
-<td>2026-06-27 (0d)</td>
-<td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
-<td>$31.47 / $22.03 / $34.62</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>A$4.16 / A$2.91 / A$4.58</td>
 </tr>
 <tr>
 <td>AUPH</td>
 <td>88/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (19d)</td>
 <td>6×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+8.9%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
+<td><span class="hl-green">+8.9%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$15.85 / $11.10 / $17.43</td>
+</tr>
+<tr>
+<td>ATEX</td>
+<td>83/100</td>
+<td>2026-06-27 (4d)</td>
+<td>1×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$89.67 / $62.77 / $98.64</td>
 </tr>
 <tr>
 <td>AMAT</td>
 <td>88/100</td>
-<td>2026-06-27 (0d)</td>
+<td>2026-06-27 (4d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
 <td>$626.84 / $438.79 / $689.52</td>
 </tr>
 <tr>
 <td>KLAC</td>
 <td>88/100</td>
-<td>2026-06-27 (0d)</td>
+<td>2026-06-27 (4d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
 <td>$248.64 / $174.05 / $273.50</td>
+</tr>
+<tr>
+<td>BB</td>
+<td>82/100</td>
+<td>2026-06-27 (4d)</td>
+<td>1×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$11.40 / $7.98 / $12.54</td>
 </tr>
 <tr>
 <td>DRTS</td>
 <td>70/100</td>
-<td>2026-06-27 (0d)</td>
+<td>2026-06-27 (4d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
 <td>$10.88 / $7.62 / $11.97</td>
 </tr>
 <tr>
 <td>LRCX</td>
 <td>88/100</td>
-<td>2026-06-27 (0d)</td>
+<td>2026-06-27 (4d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
 <td>$379.09 / $265.36 / $417.00</td>
 </tr>
 <tr>
 <td>MU</td>
 <td>91/100</td>
-<td>2026-06-27 (0d)</td>
+<td>2026-06-27 (4d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
 <td>$1132.33 / $792.63 / $1245.56</td>
 </tr>
 <tr>
 <td>NPKI</td>
 <td>78/100</td>
-<td>2026-06-27 (0d)</td>
+<td>2026-06-27 (4d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
 <td>$15.61 / $10.93 / $17.17</td>
 </tr>
 <tr>
 <td>TER</td>
 <td>87/100</td>
-<td>2026-06-27 (0d)</td>
+<td>2026-06-27 (4d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span> (still open)</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
 <td>$436.86 / $305.80 / $480.55</td>
 </tr>
 <tr>
-<td>CYD</td>
-<td>82/100</td>
-<td>2026-06-18 (9d)</td>
+<td>TNGX</td>
+<td>70/100</td>
+<td>2026-06-27 (4d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-8.0%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-8.0%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-8.0%</span> (still open)</td>
-<td>$48.70 / $34.09 / $53.57</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$31.47 / $22.03 / $34.62</td>
 </tr>
 <tr>
 <td>AYA</td>
 <td>85/100</td>
-<td>2026-06-18 (9d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-13.9%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.4%</span> (still open)</td>
+<td><span class="hl-red">-0.4%</span></td>
+<td><span class="hl-red">-13.9%</span></td>
+<td><span class="hl-red">-0.4%</span> (still open)</td>
 <td>$19.88 / $13.92 / $21.87</td>
 </tr>
 <tr>
-<td>ECG</td>
+<td>HLIT</td>
 <td>82/100</td>
-<td>2026-06-18 (9d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.5%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.5%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.5%</span> (still open)</td>
-<td>$157.71 / $110.40 / $173.48</td>
+<td><span class="hl-red">-1.2%</span></td>
+<td><span class="hl-red">-3.6%</span></td>
+<td><span class="hl-red">-1.2%</span> (still open)</td>
+<td>$15.08 / $10.56 / $16.59</td>
 </tr>
 <tr>
-<td>SVCO</td>
-<td>73/100</td>
-<td>2026-06-18 (9d)</td>
+<td>SXE.AX</td>
+<td>69/100</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-10.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-11.5%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-10.4%</span> (still open)</td>
-<td>$13.35 / $9.35 / $14.69</td>
+<td><span class="hl-green">+2.2%</span></td>
+<td><span class="hl-red">-0.2%</span></td>
+<td><span class="hl-green">+2.2%</span> (still open)</td>
+<td>A$4.61 / A$3.23 / A$5.07</td>
 </tr>
 <tr>
 <td>SCCO</td>
 <td>74/100</td>
-<td>2026-06-18 (9d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-11.2%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-11.2%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-11.2%</span> (still open)</td>
+<td><span class="hl-red">-11.2%</span></td>
+<td><span class="hl-red">-11.2%</span></td>
+<td><span class="hl-red">-11.2%</span> (still open)</td>
 <td>$192.93 / $135.05 / $212.22</td>
 </tr>
 <tr>
 <td>ROKU</td>
 <td>71/100</td>
-<td>2026-06-18 (9d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.9%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-2.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.9%</span> (still open)</td>
+<td><span class="hl-red">-1.9%</span></td>
+<td><span class="hl-red">-2.4%</span></td>
+<td><span class="hl-red">-1.9%</span> (still open)</td>
 <td>$138.07 / $96.65 / $151.88</td>
 </tr>
 <tr>
 <td>MYG.AX</td>
 <td>79/100</td>
-<td>2026-06-18 (9d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-7.3%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-7.3%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-7.3%</span> (still open)</td>
+<td><span class="hl-red">-7.3%</span></td>
+<td><span class="hl-red">-7.3%</span></td>
+<td><span class="hl-red">-7.3%</span> (still open)</td>
 <td>A$3.29 / A$2.30 / A$3.62</td>
 </tr>
 <tr>
 <td>MOD</td>
 <td>86/100</td>
-<td>2026-06-18 (9d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-13.9%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-13.9%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-13.9%</span> (still open)</td>
+<td><span class="hl-red">-13.9%</span></td>
+<td><span class="hl-red">-13.9%</span></td>
+<td><span class="hl-red">-13.9%</span> (still open)</td>
 <td>$297.37 / $208.16 / $327.11</td>
-</tr>
-<tr>
-<td>HLIT</td>
-<td>82/100</td>
-<td>2026-06-18 (9d)</td>
-<td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.2%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.6%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.2%</span> (still open)</td>
-<td>$15.08 / $10.56 / $16.59</td>
 </tr>
 <tr>
 <td>FIX</td>
 <td>82/100</td>
-<td>2026-06-18 (9d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-5.8%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-5.8%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-5.8%</span> (still open)</td>
+<td><span class="hl-red">-5.8%</span></td>
+<td><span class="hl-red">-5.8%</span></td>
+<td><span class="hl-red">-5.8%</span> (still open)</td>
 <td>$1967.41 / $1377.19 / $2164.15</td>
 </tr>
 <tr>
-<td>SXE.AX</td>
-<td>69/100</td>
-<td>2026-06-18 (9d)</td>
+<td>ECG</td>
+<td>82/100</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.2%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.2%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.2%</span> (still open)</td>
-<td>A$4.61 / A$3.23 / A$5.07</td>
+<td><span class="hl-red">-1.5%</span></td>
+<td><span class="hl-red">-1.5%</span></td>
+<td><span class="hl-red">-1.5%</span> (still open)</td>
+<td>$157.71 / $110.40 / $173.48</td>
 </tr>
 <tr>
-<td>AEHR</td>
-<td>66/100</td>
-<td>2026-06-18 (10d)</td>
+<td>CYD</td>
+<td>82/100</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-20.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-20.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-20.4%</span> (still open)</td>
-<td>$115.30 / $80.71 / $126.83</td>
+<td><span class="hl-red">-8.0%</span></td>
+<td><span class="hl-red">-8.0%</span></td>
+<td><span class="hl-red">-8.0%</span> (still open)</td>
+<td>$48.70 / $34.09 / $53.57</td>
+</tr>
+<tr>
+<td>SVCO</td>
+<td>73/100</td>
+<td>2026-06-18 (14d)</td>
+<td>1×</td>
+<td><span class="hl-red">-10.4%</span></td>
+<td><span class="hl-red">-11.5%</span></td>
+<td><span class="hl-red">-10.4%</span> (still open)</td>
+<td>$13.35 / $9.35 / $14.69</td>
 </tr>
 <tr>
 <td>AAMI</td>
 <td>59/100</td>
-<td>2026-06-18 (10d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.9%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-7.2%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.9%</span> (still open)</td>
+<td><span class="hl-red">-3.9%</span></td>
+<td><span class="hl-red">-7.2%</span></td>
+<td><span class="hl-red">-3.9%</span> (still open)</td>
 <td>$75.15 / $52.61 / $82.67</td>
-</tr>
-<tr>
-<td>AGM</td>
-<td>75/100</td>
-<td>2026-06-18 (10d)</td>
-<td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+6.3%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.2%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+6.3%</span> (still open)</td>
-<td>$183.47 / $128.43 / $201.82</td>
 </tr>
 <tr>
 <td>AGX</td>
 <td>74/100</td>
-<td>2026-06-18 (10d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+3.6%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.9%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+3.6%</span> (still open)</td>
+<td><span class="hl-green">+3.6%</span></td>
+<td><span class="hl-red">-0.9%</span></td>
+<td><span class="hl-green">+3.6%</span> (still open)</td>
 <td>$738.85 / $517.19 / $812.73</td>
 </tr>
 <tr>
-<td>AEVA</td>
-<td>57/100</td>
-<td>2026-06-18 (10d)</td>
+<td>AGM</td>
+<td>75/100</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-14.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-17.8%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-14.4%</span> (still open)</td>
-<td>$24.39 / $17.07 / $26.83</td>
+<td><span class="hl-green">+6.3%</span></td>
+<td><span class="hl-red">-0.2%</span></td>
+<td><span class="hl-green">+6.3%</span> (still open)</td>
+<td>$183.47 / $128.43 / $201.82</td>
 </tr>
 <tr>
 <td>ADEA</td>
 <td>79/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (20d)</td>
 <td>3×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.8%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-5.8%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.8%</span> (still open)</td>
+<td><span class="hl-red">-3.8%</span></td>
+<td><span class="hl-red">-5.8%</span></td>
+<td><span class="hl-red">-3.8%</span> (still open)</td>
 <td>$31.92 / $22.34 / $35.11</td>
 </tr>
 <tr>
 <td>ADI</td>
 <td>79/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (20d)</td>
 <td>9×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-7.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-7.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-6.1%</span> (still open)</td>
+<td><span class="hl-red">-7.4%</span></td>
+<td><span class="hl-red">-7.4%</span></td>
+<td><span class="hl-red">-6.1%</span> (still open)</td>
 <td>$412.13 / $288.49 / $453.34</td>
 </tr>
 <tr>
 <td>AEIS</td>
 <td>81/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (20d)</td>
 <td>3×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.8%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.8%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.8%</span> (still open)</td>
+<td><span class="hl-red">-1.8%</span></td>
+<td><span class="hl-red">-1.8%</span></td>
+<td><span class="hl-red">-1.8%</span> (still open)</td>
 <td>$354.37 / $248.06 / $389.81</td>
 </tr>
 <tr>
 <td>ABUS</td>
 <td>63/100</td>
-<td>2026-06-18 (10d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.7%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.1%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.7%</span> (still open)</td>
+<td><span class="hl-green">+0.7%</span></td>
+<td><span class="hl-red">-3.1%</span></td>
+<td><span class="hl-green">+0.7%</span> (still open)</td>
 <td>$4.55 / $3.19 / $5.01</td>
 </tr>
 <tr>
 <td>ACAD</td>
 <td>65/100</td>
-<td>2026-06-18 (10d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+17.1%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+0.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
+<td><span class="hl-green">+17.1%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$21.62 / $15.13 / $23.78</td>
 </tr>
 <tr>
 <td>ADPT</td>
 <td>65/100</td>
-<td>2026-06-18 (10d)</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+19.6%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.7%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
+<td><span class="hl-green">+19.6%</span></td>
+<td><span class="hl-red">-1.7%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$17.53 / $12.27 / $19.28</td>
 </tr>
 <tr>
-<td>360.AX</td>
-<td>64/100</td>
-<td>2026-06-17 (10d)</td>
+<td>AEHR</td>
+<td>66/100</td>
+<td>2026-06-18 (14d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-2.7%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+3.3%</span> (still open)</td>
-<td>A$22.77 / A$15.94 / A$25.05</td>
+<td><span class="hl-red">-20.4%</span></td>
+<td><span class="hl-red">-20.4%</span></td>
+<td><span class="hl-red">-20.4%</span> (still open)</td>
+<td>$115.30 / $80.71 / $126.83</td>
 </tr>
 <tr>
-<td>OSW</td>
-<td>83/100</td>
-<td>2026-06-13 (15d)</td>
-<td>4×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+9.3%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+1.5%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
-<td>$25.79 / $18.05 / $28.37</td>
-</tr>
-<tr>
-<td>PAM</td>
-<td>88/100</td>
-<td>2026-06-12 (15d)</td>
-<td>6×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-8.7%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-9.7%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-8.5%</span> (still open)</td>
-<td>$88.33 / $61.83 / $97.16</td>
+<td>AEVA</td>
+<td>57/100</td>
+<td>2026-06-18 (14d)</td>
+<td>1×</td>
+<td><span class="hl-red">-14.4%</span></td>
+<td><span class="hl-red">-17.8%</span></td>
+<td><span class="hl-red">-14.4%</span> (still open)</td>
+<td>$24.39 / $17.07 / $26.83</td>
 </tr>
 <tr>
 <td>INSW</td>
 <td>89/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (19d)</td>
 <td>6×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.0%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.0%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.7%</span> (still open)</td>
+<td><span class="hl-red">-3.0%</span></td>
+<td><span class="hl-red">-3.0%</span></td>
+<td><span class="hl-red">-3.7%</span> (still open)</td>
 <td>$82.56 / $57.79 / $90.82</td>
 </tr>
 <tr>
 <td>EVR</td>
 <td>86/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (19d)</td>
 <td>6×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-4.3%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-4.3%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.7%</span> (still open)</td>
+<td><span class="hl-red">-4.3%</span></td>
+<td><span class="hl-red">-4.3%</span></td>
+<td><span class="hl-red">-3.7%</span> (still open)</td>
 <td>$355.10 / $248.57 / $390.61</td>
-</tr>
-<tr>
-<td>CTRN</td>
-<td>81/100</td>
-<td>2026-06-13 (15d)</td>
-<td>4×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+16.7%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+9.1%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
-<td>$50.64 / $35.45 / $55.70</td>
 </tr>
 <tr>
 <td>CAVA</td>
 <td>71/100</td>
-<td>2026-06-13 (15d)</td>
+<td>2026-06-13 (19d)</td>
 <td>3×</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-8.3%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-14.7%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-8.3%</span> (still open)</td>
+<td><span class="hl-red">-8.3%</span></td>
+<td><span class="hl-red">-14.7%</span></td>
+<td><span class="hl-red">-8.3%</span> (still open)</td>
 <td>$90.99 / $63.69 / $100.09</td>
 </tr>
 <tr>
 <td>ADUR</td>
 <td>70/100</td>
-<td>2026-06-13 (15d)</td>
+<td>2026-06-13 (19d)</td>
 <td>3×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+7.1%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.1%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
+<td><span class="hl-green">+7.1%</span></td>
+<td><span class="hl-red">-1.1%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$14.20 / $9.94 / $15.62</td>
-</tr>
-<tr>
-<td>AAP</td>
-<td>66/100</td>
-<td>2026-06-13 (15d)</td>
-<td>3×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.3%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-9.9%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.3%</span> (still open)</td>
-<td>$60.80 / $42.56 / $66.88</td>
 </tr>
 <tr>
 <td>SSD</td>
 <td>82/100</td>
-<td>2026-06-13 (15d)</td>
+<td>2026-06-13 (19d)</td>
 <td>3×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+8.8%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.7%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
+<td><span class="hl-green">+8.8%</span></td>
+<td><span class="hl-red">-0.7%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$193.07 / $135.15 / $212.38</td>
+</tr>
+<tr>
+<td>AAP</td>
+<td>66/100</td>
+<td>2026-06-13 (19d)</td>
+<td>3×</td>
+<td><span class="hl-green">+2.3%</span></td>
+<td><span class="hl-red">-9.9%</span></td>
+<td><span class="hl-green">+2.3%</span> (still open)</td>
+<td>$60.80 / $42.56 / $66.88</td>
+</tr>
+<tr>
+<td>OSW</td>
+<td>83/100</td>
+<td>2026-06-13 (19d)</td>
+<td>4×</td>
+<td><span class="hl-green">+9.3%</span></td>
+<td><span class="hl-green">+1.5%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
+<td>$25.79 / $18.05 / $28.37</td>
+</tr>
+<tr>
+<td>CTRN</td>
+<td>81/100</td>
+<td>2026-06-13 (19d)</td>
+<td>4×</td>
+<td><span class="hl-green">+16.7%</span></td>
+<td><span class="hl-green">+9.1%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
+<td>$50.64 / $35.45 / $55.70</td>
+</tr>
+<tr>
+<td>PAM</td>
+<td>88/100</td>
+<td>2026-06-12 (19d)</td>
+<td>6×</td>
+<td><span class="hl-red">-8.7%</span></td>
+<td><span class="hl-red">-9.7%</span></td>
+<td><span class="hl-red">-8.5%</span> (still open)</td>
+<td>$88.33 / $61.83 / $97.16</td>
 </tr>
 <tr>
 <td>RBC</td>
 <td>81/100</td>
-<td>2026-06-13 (15d)</td>
+<td>2026-06-13 (19d)</td>
 <td>2×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+4.4%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.2%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
+<td><span class="hl-green">+4.4%</span></td>
+<td><span class="hl-green">+2.2%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$603.64 / $422.55 / $664.00</td>
 </tr>
 <tr>
 <td>ALGN</td>
 <td>73/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (19d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.1%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-3.6%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.1%</span> (still open)</td>
+<td><span class="hl-green">+2.1%</span></td>
+<td><span class="hl-red">-3.6%</span></td>
+<td><span class="hl-green">+2.1%</span> (still open)</td>
 <td>$174.84 / $122.39 / $192.32</td>
 </tr>
 <tr>
 <td>ACA</td>
 <td>72/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (20d)</td>
 <td>2×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+11.6%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.8%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span> (target hit)</td>
+<td><span class="hl-green">+11.6%</span></td>
+<td><span class="hl-red">-0.8%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$129.51 / $90.66 / $142.46</td>
 </tr>
 <tr>
 <td>ADAM</td>
 <td>72/100</td>
-<td>2026-06-12 (15d)</td>
+<td>2026-06-12 (20d)</td>
 <td>1×</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.1%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-4.0%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.1%</span> (still open)</td>
+<td><span class="hl-green">+2.1%</span></td>
+<td><span class="hl-red">-4.0%</span></td>
+<td><span class="hl-green">+2.1%</span> (still open)</td>
 <td>$9.31 / $6.52 / $10.24</td>
 </tr>
 <tr>
-<td><strong>Total (avg of 47)</strong></td>
+<td><strong>Total (avg of 48)</strong></td>
 <td><strong>77/100</strong></td>
 <td></td>
 <td></td>
-<td><strong><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.3%</span></strong></td>
-<td><strong><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-4.0%</span></strong></td>
-<td><strong><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-0.5%</span></strong></td>
+<td><strong><span class="hl-red">-0.3%</span></strong></td>
+<td><strong><span class="hl-red">-3.9%</span></strong></td>
+<td><strong><span class="hl-red">-0.5%</span></strong></td>
 <td></td>
 </tr>
 </tbody>
@@ -1032,14 +1046,14 @@ em { color: #555; }
 <tr>
 <td>All positives</td>
 <td>17</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+125.2%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+12.8%</span></td>
+<td><span class="hl-green">+125.2%</span></td>
+<td><span class="hl-green">+12.8%</span></td>
 </tr>
 <tr>
 <td>All negatives</td>
 <td>20</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-137.6%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-200.0%</span></td>
+<td><span class="hl-red">-137.6%</span></td>
+<td><span class="hl-red">-200.0%</span></td>
 </tr>
 </tbody>
 </table>
@@ -1060,17 +1074,17 @@ em { color: #555; }
 <td>Best</td>
 <td>ADPT</td>
 <td>65/100</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+19.6%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.7%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+10.0%</span></td>
+<td><span class="hl-green">+19.6%</span></td>
+<td><span class="hl-red">-1.7%</span></td>
+<td><span class="hl-green">+10.0%</span></td>
 </tr>
 <tr>
 <td>Worst</td>
 <td>AEHR</td>
 <td>66/100</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-20.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-20.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-20.4%</span></td>
+<td><span class="hl-red">-20.4%</span></td>
+<td><span class="hl-red">-20.4%</span></td>
+<td><span class="hl-red">-20.4%</span></td>
 </tr>
 </tbody>
 </table>
@@ -1089,23 +1103,23 @@ em { color: #555; }
 <tr>
 <td>short-term high growth</td>
 <td>12</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.4%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-6.2%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-2.0%</span></td>
+<td><span class="hl-red">-1.4%</span></td>
+<td><span class="hl-red">-6.2%</span></td>
+<td><span class="hl-red">-2.0%</span></td>
 </tr>
 <tr>
 <td>short-term</td>
-<td>21</td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+2.0%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-1.7%</span></td>
-<td><span style="background:#d4edda; color:#000; padding:1px 5px; border-radius:3px;">+1.4%</span></td>
+<td>23</td>
+<td><span class="hl-green">+1.9%</span></td>
+<td><span class="hl-red">-1.7%</span></td>
+<td><span class="hl-green">+1.4%</span></td>
 </tr>
 <tr>
 <td>medium-term</td>
-<td>14</td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-2.6%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-5.5%</span></td>
-<td><span style="background:#f8d7da; color:#000; padding:1px 5px; border-radius:3px;">-2.1%</span></td>
+<td>13</td>
+<td><span class="hl-red">-3.0%</span></td>
+<td><span class="hl-red">-5.7%</span></td>
+<td><span class="hl-red">-2.5%</span></td>
 </tr>
 </tbody>
 </table>
