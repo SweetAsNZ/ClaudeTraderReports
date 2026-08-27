@@ -17,6 +17,12 @@ h1 { font-size: 1.55em; color: #0b3d91; border-bottom: 3px solid #0b3d91;
      padding-bottom: 6px; margin-top: 1.6em; margin-bottom: 0.4em; display:block; }
 h2 { font-size: 1.15em; background: #0b3d91; color: #ffffff; padding: 8px 12px;
      border-radius: 6px; margin-top: 1.6em; }
+/* Score-banded pick header colours — tell the reader at a glance how strong each pick is */
+h2.score-90plus { background: #14532d; }   /* 90+  — exceptional   */
+h2.score-80plus { background: #166534; }   /* 80–89 — very strong  */
+h2.score-70plus { background: #3a7d44; }   /* 70–79 — strong       */
+h2.score-60plus { background: #b45309; }   /* 60–69 — moderate     */
+h2.score-low    { background: #7f1d1d; }   /* <60  — weak          */
 blockquote { background: #fff8e1; border-left: 4px solid #f0a500; margin: 12px 0;
              padding: 8px 14px; border-radius: 0 6px 6px 0; color: #5d4a00; }
 table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.92em; }
@@ -28,11 +34,36 @@ ul { padding-left: 22px; }
 li { margin: 3px 0; }
 hr { border: none; border-top: 2px solid #d0d7e2; margin: 24px 0; }
 em { color: #555; }
-.ind { padding: 1px 6px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
-.ind-good   { background: #d4edda; color: #000; }   /* good   */
-.ind-bad    { background: #f8d7da; color: #000; }   /* bad    */
-.ind-warn   { background: #fff3cd; color: #000; }   /* warning*/
-.ind-normal { background: #ffffff; color: #000; border: 1px solid #d0d7e2; } /* normal */
+.ind { padding: 1px 6px; border-radius: 4px; font-weight: 600; white-space: nowrap;
+       cursor: help; }                                /* cursor:help → pointer hints tooltip */
+.ind-good   { background: #d4edda; color: #000; }
+.ind-bad    { background: #f8d7da; color: #000; }
+.ind-warn   { background: #fff3cd; color: #000; }
+.ind-normal { background: #ffffff; color: #000; border: 1px solid #d0d7e2; }
+/* Score pill shown inside each pick header */
+.score-pill { display:inline-block; padding:1px 8px; border-radius:10px;
+              font-size:0.85em; font-weight:700; margin-left:4px; }
+.score-pill-90plus { background:#bbf7d0; color:#14532d; }
+.score-pill-80plus { background:#bbf7d0; color:#166534; }
+.score-pill-70plus { background:#d1fae5; color:#065f46; }
+.score-pill-60plus { background:#fed7aa; color:#7c2d12; }
+.score-pill-low    { background:#fecaca; color:#7f1d1d; }
+/* Horizon / timeframe pill */
+.hz { display:inline-block; padding:1px 8px; border-radius:10px;
+      font-size:0.82em; font-weight:600; margin-left:4px;
+      cursor:help; }                                  /* tooltip hint on hover */
+.hz-ultra   { background:#fee2e2; color:#7f1d1d; }   /* ultra short-term — highest risk */
+.hz-growth  { background:#fde68a; color:#7c2d12; }   /* short-term high growth          */
+.hz-short   { background:#fef3c7; color:#92400e; }   /* short-term                      */
+.hz-medium  { background:#dbeafe; color:#1e3a8a; }   /* medium-term                     */
+.hz-long    { background:#d1fae5; color:#065f46; }   /* long-term                       */
+/* Trade plan: stop = red, target = green */
+.tp-stop   { background:#fecaca; color:#7f1d1d; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
+.tp-target { background:#d1fae5; color:#065f46; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
+.tp-entry  { background:#e0e7ff; color:#1e1b4b; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
 /* Highlighter badges for [GREEN]/[RED]/[YELLOW] report markup */
 .hl-green  { background: #d4edda; color: #000; padding: 1px 5px; border-radius: 3px; }
 .hl-red    { background: #f8d7da; color: #000; padding: 1px 5px; border-radius: 3px; }
@@ -68,11 +99,11 @@ em { color: #555; }
 <blockquote>
 <p>Quality ideas with a 6-12 month horizon, balancing technicals, fundamentals, sentiment and risk management.</p>
 </blockquote>
-<h2>1. 4DX.AX — score 71.2/100 (short-term: 1–3 months)</h2>
+<h2 class="score-70plus">1. 4DX.AX — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">71.2</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>4DMEDICAL LIMITED</strong> | Healthcare / Medical Devices | Close A$3.63 | fwd P/E negative (loss-making) | Avg vol 5.8M sh/day (~$21M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-31)<br />
 <strong>About:</strong> 4DMedical Limited operates as a medical technology company in the United States and Australia. The company engages in the medical research technology and development of a non-invasive respiratory imaging solution using four-dimensional imaging. It offers CT:VQ, non contrast post processing technology; CAC, a non-contrast cardiothoracic risk assessment sotware; CT LVAS, a regional lung function imaging software; IQ-UIP, a state-of-the-art software; LDAf, Patented Parametric Response Mapping (PRM) technology;<br />
-<strong>Indicators:</strong> <span class="ind ind-normal">RSI 49</span> · <span class="ind ind-bad">MACD -0.207</span> · <span class="ind ind-bad">MACD hist -0.007</span> · <span class="ind ind-warn">Risk 8.4%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-normal" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 49</span> · <span class="ind ind-bad" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD -0.207</span> · <span class="ind ind-bad" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist -0.007</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 8.4%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
@@ -84,7 +115,7 @@ em { color: #555; }
 </ul>
 <p><strong>Accounting / fundamental analysis (what the books say):</strong></p>
 <ul>
-<li><span class="hl-green">[GREEN]Solid liquidity (current ratio 6.58) — higher is better; healthy ≥1.5, weak &lt;1.0</span>[/GREEN]</li>
+<li><span class="hl-green"><span class="hl-green">Solid liquidity (current ratio 6.58) — higher is better; healthy ≥1.5, weak &lt;1.0</span></span></li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
 <ul>
@@ -99,13 +130,13 @@ em { color: #555; }
 <li><span class="hl-red">Negative free cash flow</span></li>
 <li><span class="hl-red">Negative return on equity (-1099%)</span></li>
 </ul>
-<p><strong>Trade plan — stop loss A$2.54 (−30%):</strong> Entry ~A$3.63 · Target A$3.99 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">A$2.54</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">A$3.63</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">A$3.99</span> (+10%)<br />
   Position A$794 (218.802 sh) · Risk value A$238.28 · Reward value A$79.43 · <span class="hl-red">Risk/Reward 0.3</span> (risk $ vs reward $; higher is better; 1.0+ means reward ≥ risk)</p>
-<h2>2. A — score 64.3/100 (medium-term: 6–12 months)</h2>
+<h2 class="score-60plus">2. A — score <span class="score-pill score-pill-60plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">64.3</span>/100 (<span class="hz hz-medium" title="Medium-term: 6–12 months">medium-term</span>: 6–12 months)</h2>
 <p><strong>Agilent Technologies, Inc. Common Stock</strong> | Healthcare / Diagnostics &amp; Research | Close $138.37 | fwd P/E 20.6 | Avg vol 2.2M sh/day (~$295M/day)</p>
 <p><strong>Timeframe:</strong> 1–3 months (2026-08-31 to 2026-11-01)<br />
 <strong>About:</strong> Agilent Technologies, Inc. provides application focused solutions to the life sciences, diagnostics, and applied chemical markets worldwide. The company operates through three segments: Life Sciences and Diagnostics Markets, Agilent CrossLab, and Applied Markets. The Life Sciences and Diagnostics Markets segment offers liquid chromatography systems and components; and liquid chromatography mass spectrometry systems. This segment is also involved in the genomics, contract development and manufacturing organi<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 58</span> · <span class="ind ind-good">MACD +2.415</span> · <span class="ind ind-good">MACD hist +0.260</span> · <span class="ind ind-normal">Risk 2.9%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 58</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +2.415</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.260</span> · <span class="ind ind-normal" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 2.9%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">23 buy</span> / 6 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -135,13 +166,13 @@ em { color: #555; }
 <ul>
 <li>None flagged</li>
 </ul>
-<p><strong>Trade plan — stop loss $96.86 (−30%):</strong> Entry ~$138.37 · Target $152.21 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$96.86</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$138.37</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$152.21</span> (+10%)<br />
   Position $1,000 (7.227 sh) · Risk value $300.00 · Reward value $100.00 · <span class="hl-red">Risk/Reward 0.3</span> (risk $ vs reward $; higher is better; 1.0+ means reward ≥ risk)</p>
-<h2>3. 360.AX — score 62.3/100 (short-term: 1–3 months)</h2>
+<h2 class="score-60plus">3. 360.AX — score <span class="score-pill score-pill-60plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">62.3</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>LIFE360 INC.</strong> | Technology / Software - Application | Close A$25.64 | fwd P/E 27.1 | Avg vol 680K sh/day (~$17M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-31)<br />
 <strong>About:</strong> Life360, Inc. operates a technology platform to locate people, pets, and things in North America, Europe, the Middle East, Africa, and internationally. The company provides Life360 mobile application under the freemium model that offers communications, driving safety, digital safety, and location sharing; Life360 Platform that provides location coordination and safety, driving safety, digital safety, and emergency assistance services; and mobile-first technology platform that protects members data and ensur<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 54</span> · <span class="ind ind-good">MACD +0.348</span> · <span class="ind ind-bad">MACD hist -0.101</span> · <span class="ind ind-warn">Risk 4.4%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 54</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.348</span> · <span class="ind ind-bad" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist -0.101</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 4.4%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
@@ -167,11 +198,11 @@ em { color: #555; }
 <li>Price below 200-day average (long-term downtrend)</li>
 <li><span class="hl-red">Earnings declining (-40% YoY)</span></li>
 </ul>
-<h2>4. A2M.AX — score 61.5/100 (medium-term: 6–12 months)</h2>
+<h2 class="score-60plus">4. A2M.AX — score <span class="score-pill score-pill-60plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">61.5</span>/100 (<span class="hz hz-medium" title="Medium-term: 6–12 months">medium-term</span>: 6–12 months)</h2>
 <p><strong>THE A2 MILK COMPANY LIMITED</strong> | Consumer Defensive / Packaged Foods | Close A$6.89 | fwd P/E 25.9 | Avg vol 1.8M sh/day (~$13M/day)</p>
 <p><strong>Timeframe:</strong> 1–3 months (2026-08-31 to 2026-11-01)<br />
 <strong>About:</strong> The a2 Milk Company Limited, together with its subsidiaries, sells A2-type protein type branded milk and related products in Australia, New Zealand, China, rest of Asia, and the United States. The company offers infant milk formula; other nutritional products and milk; manufactures and sells nutritional and ingredients products, as well as provides rent, royalty, and licensing services. It offers its products under the a2 Milk and a2 Platinum brands. The company was formerly known as A2 Corporation Limited<br />
-<strong>Indicators:</strong> <span class="ind ind-normal">RSI 47</span> · <span class="ind ind-good">MACD +0.077</span> · <span class="ind ind-bad">MACD hist -0.036</span> · <span class="ind ind-normal">Risk 3.4%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-normal" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 47</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.077</span> · <span class="ind ind-bad" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist -0.036</span> · <span class="ind ind-normal" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 3.4%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> after the earnings report on 2026-08-16 — buying just before earnings is a coin flip; a good report confirms the trend</p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
@@ -185,7 +216,7 @@ em { color: #555; }
 <ul>
 <li><span class="hl-green">Low debt load</span></li>
 <li>Strong dividend yield (244.0%)</li>
-<li><span class="hl-green">[GREEN]Solid liquidity (current ratio 2.96) — higher is better; healthy ≥1.5, weak &lt;1.0</span>[/GREEN]</li>
+<li><span class="hl-green"><span class="hl-green">Solid liquidity (current ratio 2.96) — higher is better; healthy ≥1.5, weak &lt;1.0</span></span></li>
 <li><span class="hl-green">Strong value-investing profile (cheap valuation, healthy returns/liquidity) — more pertinent than short-term trading signals</span></li>
 </ul>
 <p><strong>Other evidence (news, history, ML):</strong></p>
@@ -199,7 +230,7 @@ em { color: #555; }
 <li><span class="hl-red">Earnings declining (-88% YoY)</span></li>
 </ul>
 <hr />
-<h2>How to read the suggested actions</h2>
+<h2 class="score-low">How to read the suggested actions</h2>
 <table>
 <thead>
 <tr>
@@ -235,7 +266,7 @@ em { color: #555; }
 </tbody>
 </table>
 <p>Sell ratings apply only to stocks you already hold; this scanner surfaces buy candidates and does not track your portfolio. Nothing here is financial advice.</p>
-<h2>What the signals mean (plain English)</h2>
+<h2 class="score-low">What the signals mean (plain English)</h2>
 <h3>The indicator numbers shown under each pick</h3>
 <table>
 <thead>
@@ -316,7 +347,7 @@ em { color: #555; }
 </tbody>
 </table>
 <hr />
-<h2>🗓️ Scheduled research runs</h2>
+<h2 class="score-low">🗓️ Scheduled research runs</h2>
 <p><em>No scheduled jobs configured. Add one with <code>python main.py schedule add ...</code></em></p>
 <hr />
 <p><em>Data: Yahoo Finance, SEC EDGAR, Nasdaq Trader, Finnhub (analyst recs &amp; earnings dates), FMP (price targets), Marketaux (scored news sentiment) — all free tiers, cached in MySQL <code>claudetrader</code>. Sentiment: Marketaux + VADER.</em></p>
@@ -345,7 +376,7 @@ em { color: #555; }
 <tr>
 <td>360.AX</td>
 <td>62/100</td>
-<td>2026-06-17 (44d)</td>
+<td>2026-06-17 (46d)</td>
 <td>4×</td>
 <td><span class="hl-green">+11.6%</span></td>
 <td><span class="hl-red">-2.7%</span></td>
@@ -355,27 +386,27 @@ em { color: #555; }
 <tr>
 <td>4DX.AX</td>
 <td>71/100</td>
-<td>2026-07-02 (29d)</td>
+<td>2026-07-02 (31d)</td>
 <td>2×</td>
 <td><span class="hl-red">-10.6%</span></td>
 <td><span class="hl-red">-23.4%</span></td>
-<td><span class="hl-green">+10.1%</span> (target hit)</td>
-<td>A$4.06 / A$2.84 / A$4.47</td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
+<td>A$3.63 / A$2.54 / A$3.99</td>
 </tr>
 <tr>
 <td>A</td>
 <td>64/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>4×</td>
 <td><span class="hl-red">-0.1%</span></td>
 <td><span class="hl-red">-0.5%</span></td>
-<td><span class="hl-red">-0.1%</span> (still open)</td>
-<td>$138.57 / $97.00 / $152.43</td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$138.37 / $96.86 / $152.21</td>
 </tr>
 <tr>
 <td>A2M.AX</td>
 <td>62/100</td>
-<td>2026-08-01 (0d)</td>
+<td>2026-08-01 (1d)</td>
 <td>1×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
@@ -385,7 +416,7 @@ em { color: #555; }
 <tr>
 <td>AA</td>
 <td>72/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>8×</td>
 <td><span class="hl-green">+2.3%</span></td>
 <td><span class="hl-red">-3.1%</span></td>
@@ -395,7 +426,7 @@ em { color: #555; }
 <tr>
 <td>AAI.AX</td>
 <td>77/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>8×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-red">-4.4%</span></td>
@@ -405,7 +436,7 @@ em { color: #555; }
 <tr>
 <td>AAL</td>
 <td>66/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>3×</td>
 <td><span class="hl-green">+5.5%</span></td>
 <td><span class="hl-green">+2.5%</span></td>
@@ -415,7 +446,7 @@ em { color: #555; }
 <tr>
 <td>AAMI</td>
 <td>70/100</td>
-<td>2026-06-18 (43d)</td>
+<td>2026-06-18 (45d)</td>
 <td>16×</td>
 <td><span class="hl-green">+15.1%</span></td>
 <td><span class="hl-red">-7.2%</span></td>
@@ -425,7 +456,7 @@ em { color: #555; }
 <tr>
 <td>AAP</td>
 <td>62/100</td>
-<td>2026-06-13 (49d)</td>
+<td>2026-06-13 (50d)</td>
 <td>5×</td>
 <td><span class="hl-red">-8.7%</span></td>
 <td><span class="hl-red">-14.4%</span></td>
@@ -435,7 +466,7 @@ em { color: #555; }
 <tr>
 <td>AAPL</td>
 <td>70/100</td>
-<td>2026-07-06 (25d)</td>
+<td>2026-07-06 (27d)</td>
 <td>12×</td>
 <td><span class="hl-green">+7.8%</span></td>
 <td><span class="hl-red">-0.6%</span></td>
@@ -445,7 +476,7 @@ em { color: #555; }
 <tr>
 <td>AAUC</td>
 <td>83/100</td>
-<td>2026-07-17 (14d)</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
 <td><span class="hl-green">+0.1%</span></td>
 <td><span class="hl-red">-2.0%</span></td>
@@ -455,7 +486,7 @@ em { color: #555; }
 <tr>
 <td>ABAT</td>
 <td>82/100</td>
-<td>2026-07-17 (14d)</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
 <td><span class="hl-red">-3.8%</span></td>
 <td><span class="hl-red">-6.4%</span></td>
@@ -465,7 +496,7 @@ em { color: #555; }
 <tr>
 <td>ABCL</td>
 <td>76/100</td>
-<td>2026-07-17 (14d)</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
 <td><span class="hl-red">-18.8%</span></td>
 <td><span class="hl-red">-18.8%</span></td>
@@ -475,7 +506,7 @@ em { color: #555; }
 <tr>
 <td>ABEO</td>
 <td>83/100</td>
-<td>2026-07-17 (14d)</td>
+<td>2026-07-17 (16d)</td>
 <td>2×</td>
 <td><span class="hl-red">-12.4%</span></td>
 <td><span class="hl-red">-13.6%</span></td>
@@ -485,7 +516,7 @@ em { color: #555; }
 <tr>
 <td>ABG</td>
 <td>66/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>3×</td>
 <td><span class="hl-green">+0.6%</span></td>
 <td><span class="hl-green">+0.6%</span></td>
@@ -495,7 +526,7 @@ em { color: #555; }
 <tr>
 <td>ABSI</td>
 <td>78/100</td>
-<td>2026-07-17 (14d)</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
 <td><span class="hl-red">-8.9%</span></td>
 <td><span class="hl-red">-8.9%</span></td>
@@ -505,7 +536,7 @@ em { color: #555; }
 <tr>
 <td>ABUS</td>
 <td>62/100</td>
-<td>2026-06-18 (43d)</td>
+<td>2026-06-18 (45d)</td>
 <td>2×</td>
 <td><span class="hl-red">-3.1%</span></td>
 <td><span class="hl-red">-4.8%</span></td>
@@ -515,7 +546,7 @@ em { color: #555; }
 <tr>
 <td>ABX</td>
 <td>68/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>10×</td>
 <td><span class="hl-green">+0.8%</span></td>
 <td><span class="hl-green">+0.8%</span></td>
@@ -525,7 +556,7 @@ em { color: #555; }
 <tr>
 <td>ACA</td>
 <td>61/100</td>
-<td>2026-06-12 (49d)</td>
+<td>2026-06-12 (51d)</td>
 <td>12×</td>
 <td><span class="hl-green">+12.2%</span></td>
 <td><span class="hl-red">-0.8%</span></td>
@@ -535,7 +566,7 @@ em { color: #555; }
 <tr>
 <td>ACAD</td>
 <td>67/100</td>
-<td>2026-06-18 (43d)</td>
+<td>2026-06-18 (45d)</td>
 <td>12×</td>
 <td><span class="hl-green">+17.4%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
@@ -545,7 +576,7 @@ em { color: #555; }
 <tr>
 <td>ACHC</td>
 <td>66/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>5×</td>
 <td><span class="hl-red">-5.8%</span></td>
 <td><span class="hl-red">-5.8%</span></td>
@@ -555,7 +586,7 @@ em { color: #555; }
 <tr>
 <td>ACHV</td>
 <td>74/100</td>
-<td>2026-07-17 (14d)</td>
+<td>2026-07-17 (16d)</td>
 <td>10×</td>
 <td><span class="hl-red">-1.4%</span></td>
 <td><span class="hl-red">-2.7%</span></td>
@@ -565,7 +596,7 @@ em { color: #555; }
 <tr>
 <td>ACNB</td>
 <td>66/100</td>
-<td>2026-07-25 (6d)</td>
+<td>2026-07-25 (7d)</td>
 <td>11×</td>
 <td><span class="hl-green">+3.1%</span></td>
 <td><span class="hl-green">+3.1%</span></td>
@@ -575,7 +606,7 @@ em { color: #555; }
 <tr>
 <td>ACRS</td>
 <td>73/100</td>
-<td>2026-07-17 (14d)</td>
+<td>2026-07-17 (16d)</td>
 <td>11×</td>
 <td><span class="hl-red">-5.5%</span></td>
 <td><span class="hl-red">-7.9%</span></td>
@@ -585,7 +616,7 @@ em { color: #555; }
 <tr>
 <td>ADAM</td>
 <td>70/100</td>
-<td>2026-06-12 (49d)</td>
+<td>2026-06-12 (51d)</td>
 <td>2×</td>
 <td><span class="hl-red">-6.4%</span></td>
 <td><span class="hl-red">-7.7%</span></td>
@@ -595,7 +626,7 @@ em { color: #555; }
 <tr>
 <td>ADEA</td>
 <td>68/100</td>
-<td>2026-06-12 (49d)</td>
+<td>2026-06-12 (51d)</td>
 <td>4×</td>
 <td><span class="hl-red">-18.4%</span></td>
 <td><span class="hl-red">-20.5%</span></td>
@@ -605,7 +636,7 @@ em { color: #555; }
 <tr>
 <td>ADI</td>
 <td>61/100</td>
-<td>2026-06-12 (49d)</td>
+<td>2026-06-12 (51d)</td>
 <td>10×</td>
 <td><span class="hl-red">-11.0%</span></td>
 <td><span class="hl-red">-11.0%</span></td>
@@ -615,7 +646,7 @@ em { color: #555; }
 <tr>
 <td>ADPT</td>
 <td>81/100</td>
-<td>2026-06-18 (43d)</td>
+<td>2026-06-18 (45d)</td>
 <td>12×</td>
 <td><span class="hl-green">+28.6%</span></td>
 <td><span class="hl-red">-1.7%</span></td>
@@ -625,7 +656,7 @@ em { color: #555; }
 <tr>
 <td>ADUR</td>
 <td>92/100</td>
-<td>2026-06-13 (49d)</td>
+<td>2026-06-13 (50d)</td>
 <td>10×</td>
 <td><span class="hl-red">-5.4%</span></td>
 <td><span class="hl-red">-10.0%</span></td>
@@ -635,7 +666,7 @@ em { color: #555; }
 <tr>
 <td>AEHR</td>
 <td>66/100</td>
-<td>2026-06-18 (43d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
 <td><span class="hl-red">-32.8%</span></td>
 <td><span class="hl-red">-41.9%</span></td>
@@ -645,7 +676,7 @@ em { color: #555; }
 <tr>
 <td>AEIS</td>
 <td>81/100</td>
-<td>2026-06-12 (49d)</td>
+<td>2026-06-12 (51d)</td>
 <td>3×</td>
 <td><span class="hl-red">-17.6%</span></td>
 <td><span class="hl-red">-20.8%</span></td>
@@ -655,7 +686,7 @@ em { color: #555; }
 <tr>
 <td>AER</td>
 <td>70/100</td>
-<td>2026-07-28 (4d)</td>
+<td>2026-07-28 (5d)</td>
 <td>1×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
@@ -665,7 +696,7 @@ em { color: #555; }
 <tr>
 <td>AEVA</td>
 <td>57/100</td>
-<td>2026-06-18 (43d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
 <td><span class="hl-red">-36.3%</span></td>
 <td><span class="hl-red">-39.1%</span></td>
@@ -675,7 +706,7 @@ em { color: #555; }
 <tr>
 <td>AGEN</td>
 <td>74/100</td>
-<td>2026-07-25 (6d)</td>
+<td>2026-07-25 (7d)</td>
 <td>12×</td>
 <td><span class="hl-green">+2.5%</span></td>
 <td><span class="hl-green">+2.5%</span></td>
@@ -685,7 +716,7 @@ em { color: #555; }
 <tr>
 <td>AGI</td>
 <td>87/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>9×</td>
 <td><span class="hl-green">+0.5%</span></td>
 <td><span class="hl-green">+0.5%</span></td>
@@ -695,7 +726,7 @@ em { color: #555; }
 <tr>
 <td>AGIO</td>
 <td>76/100</td>
-<td>2026-07-28 (4d)</td>
+<td>2026-07-28 (5d)</td>
 <td>1×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
@@ -705,7 +736,7 @@ em { color: #555; }
 <tr>
 <td>AGM</td>
 <td>75/100</td>
-<td>2026-06-18 (43d)</td>
+<td>2026-06-18 (45d)</td>
 <td>11×</td>
 <td><span class="hl-green">+13.9%</span></td>
 <td><span class="hl-red">-0.2%</span></td>
@@ -715,7 +746,7 @@ em { color: #555; }
 <tr>
 <td>AGX</td>
 <td>74/100</td>
-<td>2026-06-18 (43d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
 <td><span class="hl-red">-26.6%</span></td>
 <td><span class="hl-red">-26.6%</span></td>
@@ -725,7 +756,7 @@ em { color: #555; }
 <tr>
 <td>AGYS</td>
 <td>73/100</td>
-<td>2026-07-28 (4d)</td>
+<td>2026-07-28 (5d)</td>
 <td>1×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
@@ -735,7 +766,7 @@ em { color: #555; }
 <tr>
 <td>AHR</td>
 <td>75/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>9×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
@@ -745,7 +776,7 @@ em { color: #555; }
 <tr>
 <td>AIR</td>
 <td>84/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>10×</td>
 <td><span class="hl-green">+6.1%</span></td>
 <td><span class="hl-green">+6.1%</span></td>
@@ -755,7 +786,7 @@ em { color: #555; }
 <tr>
 <td>AIT</td>
 <td>67/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>5×</td>
 <td><span class="hl-green">+0.6%</span></td>
 <td><span class="hl-green">+0.6%</span></td>
@@ -765,7 +796,7 @@ em { color: #555; }
 <tr>
 <td>ALGN</td>
 <td>73/100</td>
-<td>2026-06-12 (49d)</td>
+<td>2026-06-12 (51d)</td>
 <td>1×</td>
 <td><span class="hl-red">-3.9%</span></td>
 <td><span class="hl-red">-4.5%</span></td>
@@ -775,7 +806,7 @@ em { color: #555; }
 <tr>
 <td>ALGT</td>
 <td>72/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>10×</td>
 <td><span class="hl-green">+1.1%</span></td>
 <td><span class="hl-green">+1.1%</span></td>
@@ -785,7 +816,7 @@ em { color: #555; }
 <tr>
 <td>ALK</td>
 <td>66/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>3×</td>
 <td><span class="hl-green">+3.0%</span></td>
 <td><span class="hl-green">+3.0%</span></td>
@@ -795,7 +826,7 @@ em { color: #555; }
 <tr>
 <td>ALKS</td>
 <td>74/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>9×</td>
 <td><span class="hl-red">-0.3%</span></td>
 <td><span class="hl-red">-0.3%</span></td>
@@ -805,7 +836,7 @@ em { color: #555; }
 <tr>
 <td>ALLE</td>
 <td>67/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>3×</td>
 <td><span class="hl-green">+3.1%</span></td>
 <td><span class="hl-green">+3.1%</span></td>
@@ -815,7 +846,7 @@ em { color: #555; }
 <tr>
 <td>ALMS</td>
 <td>77/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>9×</td>
 <td><span class="hl-red">-3.3%</span></td>
 <td><span class="hl-red">-3.3%</span></td>
@@ -825,7 +856,7 @@ em { color: #555; }
 <tr>
 <td>ALNT</td>
 <td>81/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>9×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
@@ -835,7 +866,7 @@ em { color: #555; }
 <tr>
 <td>AMAL</td>
 <td>66/100</td>
-<td>2026-07-26 (5d)</td>
+<td>2026-07-26 (7d)</td>
 <td>5×</td>
 <td><span class="hl-red">-0.9%</span></td>
 <td><span class="hl-red">-0.9%</span></td>

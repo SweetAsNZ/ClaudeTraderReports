@@ -13,10 +13,16 @@ body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-se
 .scan-meta { flex:1; text-align:right; }
 .scan-meta .scan-title { font-size:1.1em; font-weight:700; color:#1e4ec9; margin:0 0 2px; }
 .scan-meta .scan-sub { font-size:0.88em; color:#555; margin:0; }
-h1 { font-size: 1.45em; color: #0b3d91; border-bottom: 3px solid #0b3d91;
-     padding-bottom: 6px; margin-top: 1.4em; display:none; }
+h1 { font-size: 1.55em; color: #0b3d91; border-bottom: 3px solid #0b3d91;
+     padding-bottom: 6px; margin-top: 1.6em; margin-bottom: 0.4em; display:block; }
 h2 { font-size: 1.15em; background: #0b3d91; color: #ffffff; padding: 8px 12px;
      border-radius: 6px; margin-top: 1.6em; }
+/* Score-banded pick header colours — tell the reader at a glance how strong each pick is */
+h2.score-90plus { background: #14532d; }   /* 90+  — exceptional   */
+h2.score-80plus { background: #166534; }   /* 80–89 — very strong  */
+h2.score-70plus { background: #3a7d44; }   /* 70–79 — strong       */
+h2.score-60plus { background: #b45309; }   /* 60–69 — moderate     */
+h2.score-low    { background: #7f1d1d; }   /* <60  — weak          */
 blockquote { background: #fff8e1; border-left: 4px solid #f0a500; margin: 12px 0;
              padding: 8px 14px; border-radius: 0 6px 6px 0; color: #5d4a00; }
 table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.92em; }
@@ -28,11 +34,36 @@ ul { padding-left: 22px; }
 li { margin: 3px 0; }
 hr { border: none; border-top: 2px solid #d0d7e2; margin: 24px 0; }
 em { color: #555; }
-.ind { padding: 1px 6px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
-.ind-good   { background: #d4edda; color: #000; }   /* good   */
-.ind-bad    { background: #f8d7da; color: #000; }   /* bad    */
-.ind-warn   { background: #fff3cd; color: #000; }   /* warning*/
-.ind-normal { background: #ffffff; color: #000; border: 1px solid #d0d7e2; } /* normal */
+.ind { padding: 1px 6px; border-radius: 4px; font-weight: 600; white-space: nowrap;
+       cursor: help; }                                /* cursor:help → pointer hints tooltip */
+.ind-good   { background: #d4edda; color: #000; }
+.ind-bad    { background: #f8d7da; color: #000; }
+.ind-warn   { background: #fff3cd; color: #000; }
+.ind-normal { background: #ffffff; color: #000; border: 1px solid #d0d7e2; }
+/* Score pill shown inside each pick header */
+.score-pill { display:inline-block; padding:1px 8px; border-radius:10px;
+              font-size:0.85em; font-weight:700; margin-left:4px; }
+.score-pill-90plus { background:#bbf7d0; color:#14532d; }
+.score-pill-80plus { background:#bbf7d0; color:#166534; }
+.score-pill-70plus { background:#d1fae5; color:#065f46; }
+.score-pill-60plus { background:#fed7aa; color:#7c2d12; }
+.score-pill-low    { background:#fecaca; color:#7f1d1d; }
+/* Horizon / timeframe pill */
+.hz { display:inline-block; padding:1px 8px; border-radius:10px;
+      font-size:0.82em; font-weight:600; margin-left:4px;
+      cursor:help; }                                  /* tooltip hint on hover */
+.hz-ultra   { background:#fee2e2; color:#7f1d1d; }   /* ultra short-term — highest risk */
+.hz-growth  { background:#fde68a; color:#7c2d12; }   /* short-term high growth          */
+.hz-short   { background:#fef3c7; color:#92400e; }   /* short-term                      */
+.hz-medium  { background:#dbeafe; color:#1e3a8a; }   /* medium-term                     */
+.hz-long    { background:#d1fae5; color:#065f46; }   /* long-term                       */
+/* Trade plan: stop = red, target = green */
+.tp-stop   { background:#fecaca; color:#7f1d1d; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
+.tp-target { background:#d1fae5; color:#065f46; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
+.tp-entry  { background:#e0e7ff; color:#1e1b4b; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
 /* Highlighter badges for [GREEN]/[RED]/[YELLOW] report markup */
 .hl-green  { background: #d4edda; color: #000; padding: 1px 5px; border-radius: 3px; }
 .hl-red    { background: #f8d7da; color: #000; padding: 1px 5px; border-radius: 3px; }
@@ -65,12 +96,12 @@ em { color: #555; }
 <p>ℹ️ <strong>No medium-term (6–12 months) or long-term (12–24+ months) picks this run</strong> — every idea below is short-term.</p>
 <p>Research only. Targets a 10%+ gain over 1–3 months (short-term) or solid medium-term growth.</p>
 </blockquote>
-<h2>1. WBI — score 82.6/100 (short-term: 1–3 months)</h2>
+<h2 class="score-80plus">1. WBI — score <span class="score-pill score-pill-80plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">82.6</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>WaterBridge Infrastructure LLC Class A Shares Representing Limited Liability Company Interests</strong> | Energy / Oil &amp; Gas Equipment &amp; Services | Close $33.54 | fwd P/E 30.2 | Avg vol 2.3M sh/day (~$74M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> WaterBridge Infrastructure LLC, water infrastructure company, provides water management solutions through integrated pipeline and water handling networks in the United States. It offers produced water handling and gathering pipeline services; brackish water, recycled water, and produced water solutions; and gas transportation services. The company was incorporated in 2025 and is headquartered in Houston, Texas.<br />
 <strong>Recommended in 3 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 58</span> · <span class="ind ind-good">MACD +0.713</span> · <span class="ind ind-good">MACD hist +0.158</span> · <span class="ind ind-warn">Risk 6.0%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 58</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.713</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.158</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 6.0%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">11 buy</span> / 2 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Soft</span></p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
@@ -101,14 +132,14 @@ em { color: #555; }
 <ul>
 <li><span class="hl-red">Unprofitable (negative margins)</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $23.48 (−30%):</strong> Entry ~$33.54 · Target $36.89 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$23.48</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$33.54</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$36.89</span> (+10%)<br />
   Position $1,000 (29.8151 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>2. TGTX — score 82.2/100 (short-term: 1–3 months)</h2>
+<h2 class="score-80plus">2. TGTX — score <span class="score-pill score-pill-80plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">82.2</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>TG Therapeutics, Inc. - Common Stock</strong> | Healthcare / Biotechnology | Close $58.06 | fwd P/E 18.6 | Avg vol 3.2M sh/day (~$166M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> TG Therapeutics, Inc., a commercial stage biopharmaceutical company, focuses on the acquisition, development, and commercialization of novel treatments for B-cell mediated diseases in the United States and internationally. The company provides BRIUMVI, an anti-CD20 monoclonal antibody for the treatment of adult patients with relapsing forms of multiple sclerosis (RMS), including clinically isolated syndrome, relapsing-remitting disease, and active secondary progressive disease in adults. The company's devel<br />
 <strong>Recommended in 5 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-warn">RSI 78</span> · <span class="ind ind-good">MACD +3.748</span> · <span class="ind ind-good">MACD hist +0.010</span> · <span class="ind ind-warn">Risk 4.3%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-warn" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 78</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +3.748</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.010</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 4.3%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">12 buy</span> / 2 hold / <span class="hl-red">1 sell</span><br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -143,14 +174,14 @@ em { color: #555; }
 <li><span class="hl-yellow">Williams %R overbought (-5)</span></li>
 <li><span class="hl-red">Negative free cash flow</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $40.64 (−30%):</strong> Entry ~$58.06 · Target $63.87 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$40.64</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$58.06</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$63.87</span> (+10%)<br />
   Position $1,000 (17.2235 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>3. ADUR — score 81.9/100 (short-term: 1–3 months)</h2>
+<h2 class="score-80plus">3. ADUR — score <span class="score-pill score-pill-80plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">81.9</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Aduro Clean Technologies Inc. - Common Stock</strong> | Industrials / Pollution &amp; Treatment Controls | Close $15.34 | fwd P/E negative (loss-making) | Avg vol 626K sh/day (~$10M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Aduro Clean Technologies Inc. engages in developing water-based chemical recycling technologies. The company's platform converts end-of-life plastics and tire rubber to specialty chemicals and fuels; upgrades heavy crude oils; and transforms renewable oils into renewable fuels and specialty chemicals. Its water based chemical recycling platform features applications in hydrochemolytic plastics upcycling, hydrochemolytic renewables upgrading, and hydrochemolytic bitumen upgrading sectors. The company was for<br />
 <strong>Recommended in 8 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 53</span> · <span class="ind ind-good">MACD +0.252</span> · <span class="ind ind-good">MACD hist +0.032</span> · <span class="ind ind-warn">Risk 7.8%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 53</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.252</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.032</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 7.8%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">6 buy</span> / 1 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -182,14 +213,14 @@ em { color: #555; }
 <li><span class="hl-red">Unprofitable (negative margins)</span></li>
 <li><span class="hl-red">Negative free cash flow</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $10.74 (−30%):</strong> Entry ~$15.34 · Target $16.87 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$10.74</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$15.34</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$16.87</span> (+10%)<br />
   Position $1,000 (65.189 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>4. BAND — score 81.7/100 (short-term: 1–3 months)</h2>
+<h2 class="score-80plus">4. BAND — score <span class="score-pill score-pill-80plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">81.7</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Bandwidth Inc. - Class A Common Stock</strong> | Technology / Software - Infrastructure | Close $67.56 | fwd P/E 27.5 | Avg vol 1.6M sh/day (~$91M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Bandwidth Inc. operates as a cloud-based software-powered communications platform-as-a-service provider in the United States and internationally. The company's platform enables enterprises to create, scale, and operate voice or messaging communications services across various mobile applications or connected devices. Its platform also provides voice services through SIP or programmable voice application programming interfaces (API); software APIs for messaging; communications solutions with integrated local<br />
 <strong>Recommended in 3 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 63</span> · <span class="ind ind-good">MACD +2.180</span> · <span class="ind ind-good">MACD hist +0.570</span> · <span class="ind ind-warn">Risk 7.4%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 63</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +2.180</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.570</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 7.4%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">9 buy</span> / 2 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> after the earnings report on 2026-07-29 — buying just before earnings is a coin flip; a good report confirms the trend</p>
@@ -222,14 +253,14 @@ em { color: #555; }
 <li><span class="hl-yellow">Fast 10-day run (33%) may be stretched</span></li>
 <li><span class="hl-red">Unprofitable (negative margins)</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $47.29 (−30%):</strong> Entry ~$67.56 · Target $74.32 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$47.29</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$67.56</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$74.32</span> (+10%)<br />
   Position $1,000 (14.8016 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>5. SEPN — score 81.7/100 (short-term: 1–3 months)</h2>
+<h2 class="score-80plus">5. SEPN — score <span class="score-pill score-pill-80plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">81.7</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Septerna, Inc. - Common Stock</strong> | Healthcare / Biotechnology | Close $35.83 | fwd P/E negative (loss-making) | Avg vol 517K sh/day (~$18M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Septerna, Inc., a clinical-stage biotechnology company, discovers and develops G protein-coupled receptor (GPCR) oral small molecule products for the treatment of endocrinology, immunology and inflammation, and metabolic diseases. It develops PTH1R Program, oral small molecule Parathyroid Hormone 1 Receptor agonists for the treatment of hypoparathyroidism; SEP-631, an oral small molecule MRGPRX2 negative allosteric modulator (NAM) for chronic spontaneous urticaria and other mast cell diseases; and TSHR Prog<br />
 <strong>Recommended in 3 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 58</span> · <span class="ind ind-good">MACD +1.279</span> · <span class="ind ind-bad">MACD hist -0.374</span> · <span class="ind ind-warn">Risk 6.7%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 58</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +1.279</span> · <span class="ind ind-bad" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist -0.374</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 6.7%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">15 buy</span> / 1 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Soft</span></p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
@@ -258,19 +289,19 @@ em { color: #555; }
 <ul>
 <li><span class="hl-red">Unprofitable (negative margins)</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $25.08 (−30%):</strong> Entry ~$35.83 · Target $39.41 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$25.08</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$35.83</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$39.41</span> (+10%)<br />
   Position $1,000 (27.9095 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
 <hr />
 <h1>Short-term picks — high probability of a move within ~1 month</h1>
 <blockquote>
 <p>Ranked by fast technical triggers (fresh MACD cross, 1-month momentum, volume surge, breakout proximity). Shorter window = act on the <em>Wait until</em> trigger quickly or skip; these setups go stale within days.</p>
 </blockquote>
-<h2>1. AAMI — score 78.5/100 (short-term: 1–3 months)</h2>
+<h2 class="score-70plus">1. AAMI — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">78.5</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Acadian Asset Management Inc. Common Stock</strong> | Financial Services / Asset Management | Close $78.28 | fwd P/E 12.6 | Avg vol 665K sh/day (~$50M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Acadian Asset Management Inc. is a publicly owned asset management holding company. The firm provides its services to individuals and institutions. It manages separate client focused portfolios through its subsidiaries. The firm also launches equity mutual funds for its clients. It invests in public equity, fixed income, and alternative investment markets through its subsidiaries. The firm was founded in 1980 is based Boston, Massachusetts. It was formally known as BrightSphere Investment Group plc. Acadian<br />
 <strong>Recommended in 4 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 59</span> · <span class="ind ind-good">MACD +0.664</span> · <span class="ind ind-good">MACD hist +0.061</span> · <span class="ind ind-warn">Risk 4.3%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 59</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.664</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.061</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 4.3%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> 0 buy / 5 hold / <span class="hl-red">3 sell</span><br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> after the earnings report on 2026-07-30 — buying just before earnings is a coin flip; a good report confirms the trend</p>
@@ -303,14 +334,14 @@ em { color: #555; }
 <li>High leverage (D/E 347%)</li>
 <li>Notable analyst sell ratings: 3 of 8 covering</li>
 </ul>
-<p><strong>Trade plan — stop loss $54.80 (−30%):</strong> Entry ~$78.28 · Target $86.11 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$54.80</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$78.28</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$86.11</span> (+10%)<br />
   Position $1,000 (12.7746 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>2. OPY — score 75.7/100 (short-term: 1–3 months)</h2>
+<h2 class="score-70plus">2. OPY — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">75.7</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Oppenheimer Holdings, Inc. Class A Common Stock (DE)</strong> | Financial Services / Capital Markets | Close $113.97 | fwd P/E 41.1 | Avg vol 138K sh/day (~$15M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Oppenheimer Holdings Inc. operates as a middle-market investment bank and full-service broker-dealer. It provides brokerage services covering corporate equity and debt securities, money market instruments, exchange-traded options, municipal bonds, mutual funds, exchange-traded funds, certain precious metals, and unit investment trusts; financial and wealth planning services; and margin lending services. The company also offers asset management services, including separately managed accounts, mutual fund man<br />
 <strong>Recommended in 3 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 64</span> · <span class="ind ind-good">MACD +3.394</span> · <span class="ind ind-good">MACD hist +0.674</span> · <span class="ind ind-warn">Risk 4.3%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 64</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +3.394</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.674</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 4.3%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">4 buy</span> / 1 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> after the earnings report on 2026-07-24 — buying just before earnings is a coin flip; a good report confirms the trend</p>
@@ -341,14 +372,14 @@ em { color: #555; }
 <ul>
 <li>None flagged</li>
 </ul>
-<p><strong>Trade plan — stop loss $79.78 (−30%):</strong> Entry ~$113.97 · Target $125.37 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$79.78</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$113.97</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$125.37</span> (+10%)<br />
   Position $1,000 (8.7742 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>3. OVID — score 73.4/100 (short-term: 1–3 months)</h2>
+<h2 class="score-70plus">3. OVID — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">73.4</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Ovid Therapeutics Inc. - Common Stock</strong> | Healthcare / Biotechnology | Close $2.76 | fwd P/E negative (loss-making) | Avg vol 3.9M sh/day (~$10M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Ovid Therapeutics Inc., a biopharmaceutical company, engages in the development of small molecule medicines for brain disorders including epilepsies and seizure-related neurological disorders in the United States. The company is developing OV329, a GABA-AT inhibitor which is in Phase 1 clinical trials for the treatment of adult and infant drug-resistant epilepsies; and OV4071, a first-in-human oral potassium-chloride cotransporter 2 direct activator which is in Phase 1 clinical trials for the treatment of p<br />
 <strong>Recommended in 3 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 61</span> · <span class="ind ind-good">MACD +0.057</span> · <span class="ind ind-good">MACD hist +0.045</span> · <span class="ind ind-warn">Risk 6.8%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 61</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.057</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.045</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 6.8%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">15 buy</span> / 1 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -383,19 +414,19 @@ em { color: #555; }
 <li><span class="hl-red">Negative free cash flow</span></li>
 <li>Small-cap liquidity / execution risk</li>
 </ul>
-<p><strong>Trade plan — stop loss $1.93 (−30%):</strong> Entry ~$2.76 · Target $3.04 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$1.93</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$2.76</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$3.04</span> (+10%)<br />
   Position $1,000 (362.319 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
 <hr />
 <h1>Short-term HIGH GROWTH picks — fast movers, days not months</h1>
 <blockquote>
 <p>Ranked for <em>speed and size</em> of potential gain: strong 1-month momentum, high daily volatility (so +10% is reachable in days), growth-heavy fundamentals and ML support. Higher reward, higher risk — volatility cuts both ways. Each pick lists an entry/target price and an estimated timeframe in trading days; if the target isn't hit in that window, exit or re-assess rather than holding on.</p>
 </blockquote>
-<h2>1. VIRT — score 79.0/100 (short-term high growth: days–weeks, high-risk)</h2>
+<h2 class="score-70plus">1. VIRT — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">79.0</span>/100 (<span class="hz hz-growth" title="Short-term high growth: days–weeks, high-risk">short-term high growth</span>: days–weeks, high-risk)</h2>
 <p><strong>Virtu Financial, Inc. Class A Common Stock</strong> | Financial Services / Capital Markets | Close $63.23 | fwd P/E 10.8 | Avg vol 1.4M sh/day (~$81M/day)</p>
 <p><strong>Timeframe:</strong> ~7 trading days (by 2026-07-19) — exit or re-assess if no move by then<br />
 <strong>About:</strong> Virtu Financial, Inc. operates as a financial services company in the United States, Ireland, and internationally. It operates in two segments, Market Making and Execution Services. The company is involved in buying and selling securities to broker dealers, banks and institutions; trading direct to clients, exchanges, alternative trading systems, and other market centers; cash trading business; and pre- and post-trade services, data products, and compliance tools. It also provides agency execution services<br />
 <strong>Recommended in 3 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 66</span> · <span class="ind ind-good">MACD +2.430</span> · <span class="ind ind-good">MACD hist +0.008</span> · <span class="ind ind-normal">Risk 3.9%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 66</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +2.430</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.008</span> · <span class="ind ind-normal" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 3.9%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">8 buy</span> / 4 hold / <span class="hl-red">1 sell</span><br />
 <strong>Entry / target:</strong> buy near $63.23, target $69.55 (+10%)<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
@@ -428,13 +459,13 @@ em { color: #555; }
 <li>High leverage (D/E 412%)</li>
 <li>Earnings report due ~2026-07-23 — event risk</li>
 </ul>
-<p><strong>Trade plan — stop loss $44.26 (−30%):</strong> Entry ~$63.23 · Target $69.55 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$44.26</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$63.23</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$69.55</span> (+10%)<br />
   Position $1,000 (15.8152 sh) · Risk value $300.00 · Reward value $99.95 · Risk/Reward 0.3</p>
-<h2>2. DSY — score 65.2/100 (short-term high growth: days–weeks, high-risk)</h2>
+<h2 class="score-60plus">2. DSY — score <span class="score-pill score-pill-60plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">65.2</span>/100 (<span class="hz hz-growth" title="Short-term high growth: days–weeks, high-risk">short-term high growth</span>: days–weeks, high-risk)</h2>
 <p><strong>Big Tree Cloud Holdings Limited - Class A Ordinary Shares</strong> | Consumer Defensive / Household &amp; Personal Products | Close $4.59 | fwd P/E n/a | Avg vol 8.7M sh/day (~$54M/day)</p>
 <p><strong>Timeframe:</strong> ~7 trading days (by 2026-07-19) — exit or re-assess if no move by then<br />
 <strong>Recommended in 3 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 60</span> · <span class="ind ind-good">MACD +0.331</span> · <span class="ind ind-good">MACD hist +0.068</span> · <span class="ind ind-warn">Risk 22.1%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 60</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.331</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.068</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 22.1%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Entry / target:</strong> buy near $4.59, target $5.05 (+10%)<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -470,14 +501,14 @@ em { color: #555; }
 <li>Small-cap liquidity / execution risk</li>
 <li><span class="hl-yellow">Recent share-offering filing — dilution risk</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $3.21 (−30%):</strong> Entry ~$4.59 · Target $5.05 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$3.21</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$4.59</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$5.05</span> (+10%)<br />
   Position $1,000 (217.865 sh) · Risk value $300.00 · Reward value $100.22 · Risk/Reward 0.3</p>
-<h2>3. LQDA — score 78.7/100 (short-term high growth: days–weeks, high-risk)</h2>
+<h2 class="score-70plus">3. LQDA — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">78.7</span>/100 (<span class="hz hz-growth" title="Short-term high growth: days–weeks, high-risk">short-term high growth</span>: days–weeks, high-risk)</h2>
 <p><strong>Liquidia Corporation - Common Stock</strong> | Healthcare / Drug Manufacturers - Specialty &amp; Generic | Close $81.23 | fwd P/E 14.5 | Avg vol 2.6M sh/day (~$191M/day)</p>
 <p><strong>Timeframe:</strong> ~7 trading days (by 2026-07-19) — exit or re-assess if no move by then<br />
 <strong>About:</strong> Liquidia Corporation, a biopharmaceutical company, develops, manufactures, and commercializes various products for rare cardiopulmonary diseases in the United States. The company's lead product candidates include YUTREPIA, an inhaled dry powder formulation of treprostinil for the treatment of pulmonary arterial hypertension (PAH) and pulmonary hypertension associated with interstitial lung disease (PH-ILD). It also provides Remodulin, a treprostinil injection administered through continuous intravenous and<br />
 <strong>Recommended in 3 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-warn">RSI 72</span> · <span class="ind ind-good">MACD +5.620</span> · <span class="ind ind-good">MACD hist +0.001</span> · <span class="ind ind-warn">Risk 5.1%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-warn" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 72</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +5.620</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.001</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 5.1%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">12 buy</span> / 2 hold / 0 sell<br />
 <strong>Entry / target:</strong> buy near $81.23, target $89.35 (+10%)<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Soft</span></p>
@@ -506,18 +537,18 @@ em { color: #555; }
 <ul>
 <li><span class="hl-yellow">Williams %R overbought (-5)</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $56.86 (−30%):</strong> Entry ~$81.23 · Target $89.35 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$56.86</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$81.23</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$89.35</span> (+10%)<br />
   Position $1,000 (12.3107 sh) · Risk value $300.00 · Reward value $99.96 · Risk/Reward 0.3</p>
 <hr />
 <h1>Additional opportunities (4 more when top list is unchanged)</h1>
 <blockquote>
 <p>Today's top list was largely unchanged from the previous run, so we added four extra candidates for variety.</p>
 </blockquote>
-<h2>1. CART — score 78.2/100 (additional)</h2>
+<h2 class="score-70plus">1. CART — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">78.2</span>/100 (additional)</h2>
 <p><strong>Maplebear Inc. - Common Stock</strong> | Consumer Cyclical / Internet Retail | Close $48.08 | fwd P/E 9.7 | Avg vol 4.6M sh/day (~$206M/day)</p>
 <p><strong>Timeframe:</strong> 1–3 months (2026-08-08 to 2026-10-09)<br />
 <strong>About:</strong> Maplebear Inc., doing business as Instacart, operates as a technology and enablement partner for the grocery industry in the United States and internationally. The company offers Instacart Marketplace which helps retailers serve customers' needs by supporting fulfillment options, shopping occasions, and categories; Instacart Enterprise platform, an end-to-end technology solution for retailers across all aspects of business; and Instacart Ads, enables brands to learn more about general consumer behavior from<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 64</span> · <span class="ind ind-good">MACD +1.555</span> · <span class="ind ind-good">MACD hist +0.169</span> · <span class="ind ind-warn">Risk 4.2%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 64</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +1.555</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.169</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 4.2%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">24 buy</span> / 14 hold / <span class="hl-red">2 sell</span><br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Soft</span></p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
@@ -549,13 +580,13 @@ em { color: #555; }
 <ul>
 <li>None flagged</li>
 </ul>
-<p><strong>Trade plan — stop loss $33.66 (−30%):</strong> Entry ~$48.08 · Target $52.89 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$33.66</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$48.08</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$52.89</span> (+10%)<br />
   Position $1,000 (20.7986 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>2. IOVA — score 77.5/100 (additional)</h2>
+<h2 class="score-70plus">2. IOVA — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">77.5</span>/100 (additional)</h2>
 <p><strong>Iovance Biotherapeutics, Inc. - Common Stock</strong> | Healthcare / Biotechnology | Close $4.35 | fwd P/E negative (loss-making) | Avg vol 13.8M sh/day (~$57M/day)</p>
 <p><strong>Timeframe:</strong> 1–3 months (2026-08-08 to 2026-10-09)<br />
 <strong>About:</strong> Iovance Biotherapeutics, Inc., a commercial-stage biopharmaceutical company, develops and commercializes cell therapies using autologous tumor infiltrating lymphocyte for the treatment of metastatic melanoma and other solid tumor cancers in the United States and internationally. The company offers Amtagvi, an individualized T cell therapy for solid tumor cancer and for the treatment of adult patients with previously treated advanced, or unresectable or metastatic melanomal; and Proleukin, an interleukin-2 p<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 57</span> · <span class="ind ind-good">MACD +0.094</span> · <span class="ind ind-good">MACD hist +0.006</span> · <span class="ind ind-warn">Risk 7.8%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 57</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.094</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.006</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 7.8%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">13 buy</span> / 3 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -586,13 +617,13 @@ em { color: #555; }
 <li><span class="hl-red">Unprofitable (negative margins)</span></li>
 <li><span class="hl-red">Negative free cash flow</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $3.04 (−30%):</strong> Entry ~$4.35 · Target $4.79 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$3.04</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$4.35</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$4.79</span> (+10%)<br />
   Position $1,000 (229.885 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>3. QTTB — score 77.1/100 (additional)</h2>
+<h2 class="score-70plus">3. QTTB — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">77.1</span>/100 (additional)</h2>
 <p><strong>Q32 Bio Inc. - Common Stock</strong> | Healthcare / Biotechnology | Close $13.62 | fwd P/E negative (loss-making) | Avg vol 408K sh/day (~$5M/day)</p>
 <p><strong>Timeframe:</strong> 1–3 months (2026-08-08 to 2026-10-09)<br />
 <strong>About:</strong> Q32 Bio Inc., a clinical-stage biotechnology company, develops novel biologics to restore healthy immune balance in patients with alopecia areata and other autoimmune and inflammatory diseases driven by pathological immune dysfunction. The company is developing Bempikibart (ADX-914), a fully human antiinterleukin-7 receptor alpha antagonist monoclonal antibody which completed Phase 2a clinical trials, designed to re-regulate adaptive immune function by blocking signaling mediated by interleukin-7 and thymi<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 60</span> · <span class="ind ind-good">MACD +0.903</span> · <span class="ind ind-bad">MACD hist -0.132</span> · <span class="ind ind-warn">Risk 10.2%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 60</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.903</span> · <span class="ind ind-bad" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist -0.132</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 10.2%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">9 buy</span> / 2 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -623,13 +654,13 @@ em { color: #555; }
 <li>Small-cap liquidity / execution risk</li>
 <li><span class="hl-yellow">Recent share-offering filing — dilution risk</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $9.53 (−30%):</strong> Entry ~$13.62 · Target $14.98 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$9.53</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$13.62</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$14.98</span> (+10%)<br />
   Position $1,000 (73.4214 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>4. STRO — score 77.0/100 (additional)</h2>
+<h2 class="score-70plus">4. STRO — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">77.0</span>/100 (additional)</h2>
 <p><strong>Sutro Biopharma, Inc. - Common Stock</strong> | Healthcare / Biotechnology | Close $32.13 | fwd P/E negative (loss-making) | Avg vol 451K sh/day (~$14M/day)</p>
 <p><strong>Timeframe:</strong> 1–3 months (2026-08-08 to 2026-10-09)<br />
 <strong>About:</strong> Sutro Biopharma, Inc. operates as an oncology company. The company develops site-specific and novel-format antibody drug conjugates (ADCs) that enables its proprietary integrated cell-free protein synthesis platform, XpressCF; and site-specific conjugation platform, XpressCF+. Its lead product candidate includes STRO-004, a tissue factor (TF) targeting ADC for the treatment of TF-expressing solid tumors, including non-small cell lung cancer, head and neck squamous cell carcinoma, cervical cancer, colorectal<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 55</span> · <span class="ind ind-good">MACD +0.407</span> · <span class="ind ind-good">MACD hist +0.348</span> · <span class="ind ind-warn">Risk 8.8%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 55</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.407</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.348</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 8.8%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">17 buy</span> / 1 hold / <span class="hl-red">1 sell</span><br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -661,19 +692,19 @@ em { color: #555; }
 <li><span class="hl-red">Unprofitable (negative margins)</span></li>
 <li><span class="hl-red">Negative free cash flow</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $22.49 (−30%):</strong> Entry ~$32.13 · Target $35.34 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$22.49</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$32.13</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$35.34</span> (+10%)<br />
   Position $1,000 (31.1235 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
 <hr />
 <h1>🔁 Returning picks — previously recommended, still making the grade</h1>
 <blockquote>
 <p>These featured in earlier scans and <strong>still meet the quality bar (score ≥ 55)</strong> this run. Each is labelled with how many reports it has appeared in. They're included <strong>in addition</strong> to the new picks above, so the total can exceed the usual count.</p>
 </blockquote>
-<h2>1. INSW — score 76.8/100 (short-term: 1–3 months)</h2>
+<h2 class="score-70plus">1. INSW — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">76.8</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>International Seaways, Inc. Common Stock</strong> | Energy / Oil &amp; Gas Midstream | Close $85.23 | fwd P/E 13.6 | Avg vol 663K sh/day (~$55M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> International Seaways, Inc. owns and operates a fleet of oceangoing vessels for the transportation of crude oil and petroleum products in the international flag trade. The company operates in two segments: Crude Tankers and Product Carriers. It operates fleet of 70 vessels of VLCCs, Suezmaxes, and Aframaxes, as well as MRs, LR1, and LR2 product carrier. The company provides ship-to-ship (STS) lightering support services, such as hoses and fenders; and full-service STS lightering that includes lightering ves<br />
 <strong>🔁 Returning pick — Recommended in 9 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 56</span> · <span class="ind ind-good">MACD +0.175</span> · <span class="ind ind-good">MACD hist +0.117</span> · <span class="ind ind-warn">Risk 4.5%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 56</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.175</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.117</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 4.5%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">12 buy</span> / 2 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -704,14 +735,14 @@ em { color: #555; }
 <ul>
 <li>None flagged</li>
 </ul>
-<p><strong>Trade plan — stop loss $57.79 (−30%):</strong> Entry ~$82.56 · Target $90.82 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$57.79</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$82.56</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$90.82</span> (+10%)<br />
   Position $67 (0.8074 sh) · Risk value $20.00 · Reward value $6.67 · Risk/Reward 0.3</p>
-<h2>2. TNGX — score 78.5/100 (short-term: 1–3 months)</h2>
+<h2 class="score-70plus">2. TNGX — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">78.5</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Tango Therapeutics, Inc. - Common Stock</strong> | Healthcare / Biotechnology | Close $30.12 | fwd P/E negative (loss-making) | Avg vol 6.8M sh/day (~$205M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Tango Therapeutics, Inc., a precision oncology company, focuses on the discovery and development of drugs in defined patient populations with unmet medical need. The company develops methylthioadenosine -cooperative protein arginine methyltransferase 5 (PRMT5) inhibitors, including TNG462, which is in Phase 1/2 clinical trial for treating pancreatic and lung cancer; and TNG456, a brain-penetrant PRMT5 inhibitor for the treatment of glioblastoma. It is developing TNG260, a co-repressor of repressor element-1<br />
 <strong>🔁 Returning pick — Recommended in 4 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 56</span> · <span class="ind ind-good">MACD +1.421</span> · <span class="ind ind-bad">MACD hist -0.298</span> · <span class="ind ind-warn">Risk 7.1%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 56</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +1.421</span> · <span class="ind ind-bad" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist -0.298</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 7.1%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">16 buy</span> / 2 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -745,13 +776,13 @@ em { color: #555; }
 <li><span class="hl-yellow">Recent share-offering filing — dilution risk</span></li>
 <li><span class="hl-red">Negative news sentiment (-0.13)</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $21.08 (−30%):</strong> Entry ~$30.12 · Target $33.13 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$21.08</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$30.12</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$33.13</span> (+10%)<br />
   Position $1,000 (33.2005 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>3. ROKU — score 75.2/100 (short-term: 1–3 months)</h2>
+<h2 class="score-70plus">3. ROKU — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">75.2</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Roku, Inc. - Class A Common Stock</strong> | Communication Services / Entertainment | Close $141.21 | fwd P/E 38.2 | Avg vol 8.4M sh/day (~$1152M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>🔁 Returning pick — Recommended in 4 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 63</span> · <span class="ind ind-good">MACD +4.133</span> · <span class="ind ind-good">MACD hist +0.291</span> · <span class="ind ind-normal">Risk 2.8%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 63</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +4.133</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.291</span> · <span class="ind ind-normal" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 2.8%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">17 buy</span> / 18 hold / 0 sell — consensus target $154.72 (<span class="hl-yellow">+10%</span>)<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> after the earnings report on 2026-07-29 — buying just before earnings is a coin flip; a good report confirms the trend</p>
@@ -781,14 +812,14 @@ em { color: #555; }
 <ul>
 <li>None flagged</li>
 </ul>
-<p><strong>Trade plan — stop loss $98.85 (−30%):</strong> Entry ~$141.21 · Target $155.33 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$98.85</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$141.21</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$155.33</span> (+10%)<br />
   Position $1,000 (7.0816 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>4. ANRO — score 81.4/100 (short-term: 1–3 months)</h2>
+<h2 class="score-80plus">4. ANRO — score <span class="score-pill score-pill-80plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">81.4</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Alto Neuroscience, Inc. Common Stock</strong> | Healthcare / Biotechnology | Close $25.70 | fwd P/E negative (loss-making) | Avg vol 626K sh/day (~$16M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Alto Neuroscience, Inc. operates as a clinical-stage biopharmaceutical company in the United States. The company's product pipeline includes ALTO-100, which is in Phase 2b clinical trial for the treatment of patients with bipolar depression (BPD). It also develops ALTO-300, a small molecule melatonergic agonist and serotonergic antagonist with antidepressant properties, which is in Phase 2b clinical trial to treat patients with major depressive disorder (MDD); ALTO-101, a novel small molecule phosphodiester<br />
 <strong>🔁 Returning pick — Recommended in 2 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 59</span> · <span class="ind ind-good">MACD +1.215</span> · <span class="ind ind-good">MACD hist +0.255</span> · <span class="ind ind-warn">Risk 7.5%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 59</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +1.215</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.255</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 7.5%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">16 buy</span> / 2 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -822,14 +853,14 @@ em { color: #555; }
 <li><span class="hl-red">Unprofitable (negative margins)</span></li>
 <li><span class="hl-red">Negative free cash flow</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $17.99 (−30%):</strong> Entry ~$25.70 · Target $28.27 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$17.99</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$25.70</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$28.27</span> (+10%)<br />
   Position $1,000 (38.9105 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>5. PLSE — score 81.3/100 (short-term: 1–3 months)</h2>
+<h2 class="score-80plus">5. PLSE — score <span class="score-pill score-pill-80plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">81.3</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Pulse Biosciences, Inc - Common Stock</strong> | Healthcare / Medical Instruments &amp; Supplies | Close $28.03 | fwd P/E negative (loss-making) | Avg vol 361K sh/day (~$10M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Pulse Biosciences, Inc. operates as a novel bioelectric medicine company. It offers nPulse System, a novel Nanosecond Pulsed-Field Ablation delivery platform to treat benign lesions of the skin; nPulse Vybrance Percutaneous Electrode system for soft tissue ablation in surgical setting; nPulse Cardiac Surgical Clamp designed for use in surgical treatment of atrial fibrillation (AF); nPulse Cardiac Catheter System designed to provide a circumferential, or circular, ablation in a single treatment cycle; and nP<br />
 <strong>🔁 Returning pick — Recommended in 2 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 57</span> · <span class="ind ind-good">MACD +1.132</span> · <span class="ind ind-good">MACD hist +0.137</span> · <span class="ind ind-warn">Risk 6.7%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 57</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +1.132</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.137</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 6.7%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">8 buy</span> / 1 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -862,14 +893,14 @@ em { color: #555; }
 <li><span class="hl-red">Unprofitable (negative margins)</span></li>
 <li><span class="hl-red">Negative free cash flow</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $19.62 (−30%):</strong> Entry ~$28.03 · Target $30.83 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$19.62</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$28.03</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$30.83</span> (+10%)<br />
   Position $1,000 (35.676 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>6. FCFS — score 80.0/100 (short-term: 1–3 months)</h2>
+<h2 class="score-80plus">6. FCFS — score <span class="score-pill score-pill-80plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">80.0</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>FirstCash Holdings, Inc. - Common Stock</strong> | Financial Services / Credit Services | Close $223.25 | fwd P/E 17.2 | Avg vol 562K sh/day (~$123M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> FirstCash Holdings, Inc., together with its subsidiaries, operates retail pawn stores in the United States, Mexico, rest of Latin America, and the United Kingdom. The company operates through four segments: U.S. Pawn, Latin America Pawn, U.K. Pawn, and Retail POS Payment Solutions segments. Its pawn stores lend money on the collateral of pledged personal property, including jewelry, electronics, tools, appliances, sporting goods, and musical instruments; and retails merchandise acquired through collateral f<br />
 <strong>🔁 Returning pick — Recommended in 2 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 53</span> · <span class="ind ind-bad">MACD -0.065</span> · <span class="ind ind-good">MACD hist +0.175</span> · <span class="ind ind-normal">Risk 3.7%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 53</span> · <span class="ind ind-bad" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD -0.065</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.175</span> · <span class="ind ind-normal" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 3.7%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">8 buy</span> / 3 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Soft</span></p>
 <p><strong>Technical analysis (what the chart says):</strong></p>
@@ -900,14 +931,14 @@ em { color: #555; }
 <ul>
 <li>Earnings report due ~2026-07-23 — event risk</li>
 </ul>
-<p><strong>Trade plan — stop loss $156.28 (−30%):</strong> Entry ~$223.25 · Target $245.57 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$156.28</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$223.25</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$245.57</span> (+10%)<br />
   Position $1,000 (4.4792 sh) · Risk value $299.99 · Reward value $100.00 · Risk/Reward 0.3</p>
-<h2>7. ELDN — score 79.3/100 (short-term: 1–3 months)</h2>
+<h2 class="score-70plus">7. ELDN — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">79.3</span>/100 (<span class="hz hz-short" title="Short-term: 1–3 months">short-term</span>: 1–3 months)</h2>
 <p><strong>Eledon Pharmaceuticals, Inc. - Common Stock</strong> | Healthcare / Biotechnology | Close $3.93 | fwd P/E negative (loss-making) | Avg vol 1.9M sh/day (~$7M/day)</p>
 <p><strong>Timeframe:</strong> ~1 month (by 2026-08-08)<br />
 <strong>About:</strong> Eledon Pharmaceuticals, Inc. operates as a clinical stage biotechnology company. It uses its immunology expertise in targeting the CD40 Ligand (CD40L) pathway to develop therapies to protect transplanted organs and prevent rejection, and to treat amyotrophic lateral sclerosis (ALS). The company's lead compound in development is tegoprubart, an IgG1 and anti-CD40L antibody with high affinity for CD40 Ligand, a biological target with therapeutic potential. It is also developing its products for the prevention<br />
 <strong>🔁 Returning pick — Recommended in 2 reports</strong> (last on 2026-07-09).<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 56</span> · <span class="ind ind-good">MACD +0.078</span> · <span class="ind ind-good">MACD hist +0.021</span> · <span class="ind ind-warn">Risk 7.1%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 56</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.078</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.021</span> · <span class="ind ind-warn" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 7.1%/day (high-risk)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">11 buy</span> / 1 hold / 0 sell<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
 <strong>Wait until:</strong> a pullback toward the 50-day average (better entry than a 52-week high), or until the next weekly scan still lists it with a rising score</p>
@@ -941,10 +972,10 @@ em { color: #555; }
 <li>Small-cap liquidity / execution risk</li>
 <li><span class="hl-yellow">Recent share-offering filing — dilution risk</span></li>
 </ul>
-<p><strong>Trade plan — stop loss $2.75 (−30%):</strong> Entry ~$3.93 · Target $4.32 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$2.75</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$3.93</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$4.32</span> (+10%)<br />
   Position $1,000 (254.453 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
 <hr />
-<h2>How to read the suggested actions</h2>
+<h2 class="score-low">How to read the suggested actions</h2>
 <table>
 <thead>
 <tr>
@@ -980,7 +1011,7 @@ em { color: #555; }
 </tbody>
 </table>
 <p>Sell ratings apply only to stocks you already hold; this scanner surfaces buy candidates and does not track your portfolio. Nothing here is financial advice.</p>
-<h2>What the signals mean (plain English)</h2>
+<h2 class="score-low">What the signals mean (plain English)</h2>
 <h3>The indicator numbers shown under each pick</h3>
 <table>
 <thead>
@@ -1061,7 +1092,7 @@ em { color: #555; }
 </tbody>
 </table>
 <hr />
-<h2>🗓️ Scheduled research runs</h2>
+<h2 class="score-low">🗓️ Scheduled research runs</h2>
 <p><em>No scheduled jobs configured. Add one with <code>python main.py schedule add ...</code></em></p>
 <hr />
 <p><em>Data: Yahoo Finance, SEC EDGAR, Nasdaq Trader, Finnhub (analyst recs &amp; earnings dates), FMP (price targets), Marketaux (scored news sentiment) — all free tiers, cached in MySQL <code>claudetrader</code>. Sentiment: Marketaux + VADER.</em></p>
@@ -1089,140 +1120,300 @@ em { color: #555; }
 <tbody>
 <tr>
 <td>360.AX</td>
-<td>73/100</td>
-<td>2026-06-17 (21d)</td>
-<td>2×</td>
-<td><span class="hl-green">+15.2%</span></td>
+<td>62/100</td>
+<td>2026-06-17 (46d)</td>
+<td>4×</td>
+<td><span class="hl-green">+11.6%</span></td>
 <td><span class="hl-red">-2.7%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>A$22.77 / A$15.94 / A$25.05</td>
 </tr>
 <tr>
 <td>4DX.AX</td>
-<td>58/100</td>
-<td>2026-07-02 (6d)</td>
+<td>71/100</td>
+<td>2026-07-02 (31d)</td>
+<td>2×</td>
+<td><span class="hl-red">-10.6%</span></td>
+<td><span class="hl-red">-23.4%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
+<td>A$3.63 / A$2.54 / A$3.99</td>
+</tr>
+<tr>
+<td>A</td>
+<td>64/100</td>
+<td>2026-07-26 (7d)</td>
+<td>4×</td>
+<td><span class="hl-red">-0.1%</span></td>
+<td><span class="hl-red">-0.5%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$138.37 / $96.86 / $152.21</td>
+</tr>
+<tr>
+<td>A2M.AX</td>
+<td>62/100</td>
+<td>2026-08-01 (1d)</td>
 <td>1×</td>
-<td><span class="hl-green">+1.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+10.1%</span> (target hit)</td>
-<td>A$4.06 / A$2.84 / A$4.47</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>A$6.89 / A$4.82 / A$7.58</td>
+</tr>
+<tr>
+<td>AA</td>
+<td>72/100</td>
+<td>2026-07-26 (7d)</td>
+<td>8×</td>
+<td><span class="hl-green">+2.3%</span></td>
+<td><span class="hl-red">-3.1%</span></td>
+<td><span class="hl-green">+2.3%</span> (still open)</td>
+<td>$44.24 / $30.97 / $48.66</td>
+</tr>
+<tr>
+<td>AAI.AX</td>
+<td>77/100</td>
+<td>2026-07-26 (7d)</td>
+<td>8×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-red">-4.4%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>A$64.24 / A$44.97 / A$70.66</td>
+</tr>
+<tr>
+<td>AAL</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
+<td>3×</td>
+<td><span class="hl-green">+5.5%</span></td>
+<td><span class="hl-green">+2.5%</span></td>
+<td><span class="hl-green">+5.5%</span> (still open)</td>
+<td>$14.48 / $10.14 / $15.93</td>
 </tr>
 <tr>
 <td>AAMI</td>
-<td>78/100</td>
-<td>2026-06-18 (20d)</td>
-<td>4×</td>
-<td><span class="hl-green">+4.2%</span></td>
+<td>70/100</td>
+<td>2026-06-18 (45d)</td>
+<td>16×</td>
+<td><span class="hl-green">+15.1%</span></td>
 <td><span class="hl-red">-7.2%</span></td>
-<td><span class="hl-green">+4.2%</span> (still open)</td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$75.15 / $52.61 / $82.67</td>
 </tr>
 <tr>
 <td>AAP</td>
-<td>66/100</td>
-<td>2026-06-13 (26d)</td>
-<td>3×</td>
-<td><span class="hl-red">-8.1%</span></td>
-<td><span class="hl-red">-9.9%</span></td>
-<td><span class="hl-red">-8.1%</span> (still open)</td>
+<td>62/100</td>
+<td>2026-06-13 (50d)</td>
+<td>5×</td>
+<td><span class="hl-red">-8.7%</span></td>
+<td><span class="hl-red">-14.4%</span></td>
+<td><span class="hl-red">-8.7%</span> (still open)</td>
 <td>$60.80 / $42.56 / $66.88</td>
 </tr>
 <tr>
 <td>AAPL</td>
-<td>84/100</td>
-<td>2026-07-06 (2d)</td>
-<td>2×</td>
+<td>70/100</td>
+<td>2026-07-06 (27d)</td>
+<td>12×</td>
+<td><span class="hl-green">+7.8%</span></td>
 <td><span class="hl-red">-0.6%</span></td>
-<td><span class="hl-red">-0.6%</span></td>
-<td><span class="hl-red">-0.6%</span> (still open)</td>
+<td><span class="hl-green">+7.8%</span> (still open)</td>
 <td>$312.66 / $218.86 / $343.93</td>
 </tr>
 <tr>
-<td>ABUS</td>
-<td>63/100</td>
-<td>2026-06-18 (20d)</td>
+<td>AAUC</td>
+<td>83/100</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
-<td><span class="hl-green">+13.8%</span></td>
+<td><span class="hl-green">+0.1%</span></td>
+<td><span class="hl-red">-2.0%</span></td>
+<td><span class="hl-green">+0.1%</span> (still open)</td>
+<td>$20.82 / $14.57 / $22.90</td>
+</tr>
+<tr>
+<td>ABAT</td>
+<td>82/100</td>
+<td>2026-07-17 (16d)</td>
+<td>1×</td>
+<td><span class="hl-red">-3.8%</span></td>
+<td><span class="hl-red">-6.4%</span></td>
+<td><span class="hl-red">-3.8%</span> (still open)</td>
+<td>$2.36 / $1.65 / $2.60</td>
+</tr>
+<tr>
+<td>ABCL</td>
+<td>76/100</td>
+<td>2026-07-17 (16d)</td>
+<td>1×</td>
+<td><span class="hl-red">-18.8%</span></td>
+<td><span class="hl-red">-18.8%</span></td>
+<td><span class="hl-red">-18.8%</span> (still open)</td>
+<td>$6.47 / $4.53 / $7.11</td>
+</tr>
+<tr>
+<td>ABEO</td>
+<td>83/100</td>
+<td>2026-07-17 (16d)</td>
+<td>2×</td>
+<td><span class="hl-red">-12.4%</span></td>
+<td><span class="hl-red">-13.6%</span></td>
+<td><span class="hl-red">-12.4%</span> (still open)</td>
+<td>$7.00 / $4.90 / $7.70</td>
+</tr>
+<tr>
+<td>ABG</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
+<td>3×</td>
+<td><span class="hl-green">+0.6%</span></td>
+<td><span class="hl-green">+0.6%</span></td>
+<td><span class="hl-green">+0.6%</span> (still open)</td>
+<td>$225.24 / $157.67 / $247.76</td>
+</tr>
+<tr>
+<td>ABSI</td>
+<td>78/100</td>
+<td>2026-07-17 (16d)</td>
+<td>1×</td>
+<td><span class="hl-red">-8.9%</span></td>
+<td><span class="hl-red">-8.9%</span></td>
+<td><span class="hl-red">-8.9%</span> (still open)</td>
+<td>$8.30 / $5.81 / $9.12</td>
+</tr>
+<tr>
+<td>ABUS</td>
+<td>62/100</td>
+<td>2026-06-18 (45d)</td>
+<td>2×</td>
 <td><span class="hl-red">-3.1%</span></td>
+<td><span class="hl-red">-4.8%</span></td>
 <td><span class="hl-green">+10.1%</span> (target hit)</td>
 <td>$4.55 / $3.19 / $5.01</td>
 </tr>
 <tr>
+<td>ABX</td>
+<td>68/100</td>
+<td>2026-07-26 (7d)</td>
+<td>10×</td>
+<td><span class="hl-green">+0.8%</span></td>
+<td><span class="hl-green">+0.8%</span></td>
+<td><span class="hl-green">+0.8%</span> (still open)</td>
+<td>$10.38 / $7.27 / $11.42</td>
+</tr>
+<tr>
 <td>ACA</td>
-<td>72/100</td>
-<td>2026-06-12 (26d)</td>
-<td>2×</td>
-<td><span class="hl-green">+11.8%</span></td>
+<td>61/100</td>
+<td>2026-06-12 (51d)</td>
+<td>12×</td>
+<td><span class="hl-green">+12.2%</span></td>
 <td><span class="hl-red">-0.8%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$129.51 / $90.66 / $142.46</td>
 </tr>
 <tr>
 <td>ACAD</td>
-<td>65/100</td>
-<td>2026-06-18 (20d)</td>
-<td>1×</td>
-<td><span class="hl-green">+21.2%</span></td>
+<td>67/100</td>
+<td>2026-06-18 (45d)</td>
+<td>12×</td>
+<td><span class="hl-green">+17.4%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$21.62 / $15.13 / $23.78</td>
 </tr>
 <tr>
+<td>ACHC</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
+<td>5×</td>
+<td><span class="hl-red">-5.8%</span></td>
+<td><span class="hl-red">-5.8%</span></td>
+<td><span class="hl-red">-5.8%</span> (still open)</td>
+<td>$34.51 / $24.16 / $37.96</td>
+</tr>
+<tr>
+<td>ACHV</td>
+<td>74/100</td>
+<td>2026-07-17 (16d)</td>
+<td>10×</td>
+<td><span class="hl-red">-1.4%</span></td>
+<td><span class="hl-red">-2.7%</span></td>
+<td><span class="hl-red">-1.4%</span> (still open)</td>
+<td>$6.27 / $4.39 / $6.90</td>
+</tr>
+<tr>
+<td>ACNB</td>
+<td>66/100</td>
+<td>2026-07-25 (7d)</td>
+<td>11×</td>
+<td><span class="hl-green">+3.1%</span></td>
+<td><span class="hl-green">+3.1%</span></td>
+<td><span class="hl-green">+3.1%</span> (still open)</td>
+<td>$62.10 / $43.47 / $68.31</td>
+</tr>
+<tr>
+<td>ACRS</td>
+<td>73/100</td>
+<td>2026-07-17 (16d)</td>
+<td>11×</td>
+<td><span class="hl-red">-5.5%</span></td>
+<td><span class="hl-red">-7.9%</span></td>
+<td><span class="hl-red">-5.5%</span> (still open)</td>
+<td>$5.68 / $3.98 / $6.25</td>
+</tr>
+<tr>
 <td>ADAM</td>
-<td>72/100</td>
-<td>2026-06-12 (26d)</td>
-<td>1×</td>
-<td><span class="hl-red">-2.0%</span></td>
-<td><span class="hl-red">-4.0%</span></td>
-<td><span class="hl-red">-2.0%</span> (still open)</td>
+<td>70/100</td>
+<td>2026-06-12 (51d)</td>
+<td>2×</td>
+<td><span class="hl-red">-6.4%</span></td>
+<td><span class="hl-red">-7.7%</span></td>
+<td><span class="hl-red">-6.4%</span> (still open)</td>
 <td>$9.31 / $6.52 / $10.24</td>
 </tr>
 <tr>
 <td>ADEA</td>
-<td>79/100</td>
-<td>2026-06-12 (26d)</td>
-<td>3×</td>
-<td><span class="hl-red">-11.1%</span></td>
-<td><span class="hl-red">-11.1%</span></td>
-<td><span class="hl-red">-11.1%</span> (still open)</td>
+<td>68/100</td>
+<td>2026-06-12 (51d)</td>
+<td>4×</td>
+<td><span class="hl-red">-18.4%</span></td>
+<td><span class="hl-red">-20.5%</span></td>
+<td><span class="hl-red">-18.4%</span> (still open)</td>
 <td>$31.92 / $22.34 / $35.11</td>
 </tr>
 <tr>
 <td>ADI</td>
-<td>79/100</td>
-<td>2026-06-12 (26d)</td>
-<td>9×</td>
-<td><span class="hl-red">-9.3%</span></td>
-<td><span class="hl-red">-9.7%</span></td>
-<td><span class="hl-red">-8.0%</span> (still open)</td>
+<td>61/100</td>
+<td>2026-06-12 (51d)</td>
+<td>10×</td>
+<td><span class="hl-red">-11.0%</span></td>
+<td><span class="hl-red">-11.0%</span></td>
+<td><span class="hl-red">-9.8%</span> (still open)</td>
 <td>$412.13 / $288.49 / $453.34</td>
 </tr>
 <tr>
 <td>ADPT</td>
-<td>65/100</td>
-<td>2026-06-18 (20d)</td>
-<td>1×</td>
-<td><span class="hl-green">+18.8%</span></td>
+<td>81/100</td>
+<td>2026-06-18 (45d)</td>
+<td>12×</td>
+<td><span class="hl-green">+28.6%</span></td>
 <td><span class="hl-red">-1.7%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$17.53 / $12.27 / $19.28</td>
 </tr>
 <tr>
 <td>ADUR</td>
-<td>82/100</td>
-<td>2026-06-13 (26d)</td>
-<td>8×</td>
-<td><span class="hl-green">+8.0%</span></td>
-<td><span class="hl-red">-1.1%</span></td>
+<td>92/100</td>
+<td>2026-06-13 (50d)</td>
+<td>10×</td>
+<td><span class="hl-red">-5.4%</span></td>
+<td><span class="hl-red">-10.0%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$14.20 / $9.94 / $15.62</td>
 </tr>
 <tr>
 <td>AEHR</td>
 <td>66/100</td>
-<td>2026-06-18 (20d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
-<td><span class="hl-red">-41.9%</span></td>
+<td><span class="hl-red">-32.8%</span></td>
 <td><span class="hl-red">-41.9%</span></td>
 <td><span class="hl-red">-30.0%</span> (stopped out)</td>
 <td>$115.30 / $80.71 / $126.83</td>
@@ -1230,29 +1421,69 @@ em { color: #555; }
 <tr>
 <td>AEIS</td>
 <td>81/100</td>
-<td>2026-06-12 (26d)</td>
+<td>2026-06-12 (51d)</td>
 <td>3×</td>
-<td><span class="hl-red">-18.8%</span></td>
-<td><span class="hl-red">-18.8%</span></td>
-<td><span class="hl-red">-18.8%</span> (still open)</td>
+<td><span class="hl-red">-17.6%</span></td>
+<td><span class="hl-red">-20.8%</span></td>
+<td><span class="hl-red">-17.6%</span> (still open)</td>
 <td>$354.37 / $248.06 / $389.81</td>
+</tr>
+<tr>
+<td>AER</td>
+<td>70/100</td>
+<td>2026-07-28 (5d)</td>
+<td>1×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$151.40 / $105.98 / $166.54</td>
 </tr>
 <tr>
 <td>AEVA</td>
 <td>57/100</td>
-<td>2026-06-18 (20d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
-<td><span class="hl-red">-11.6%</span></td>
-<td><span class="hl-red">-17.8%</span></td>
+<td><span class="hl-red">-36.3%</span></td>
+<td><span class="hl-red">-39.1%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$24.39 / $17.07 / $26.83</td>
 </tr>
 <tr>
+<td>AGEN</td>
+<td>74/100</td>
+<td>2026-07-25 (7d)</td>
+<td>12×</td>
+<td><span class="hl-green">+2.5%</span></td>
+<td><span class="hl-green">+2.5%</span></td>
+<td><span class="hl-green">+2.5%</span> (still open)</td>
+<td>$5.98 / $4.19 / $6.58</td>
+</tr>
+<tr>
+<td>AGI</td>
+<td>87/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
+<td><span class="hl-green">+0.5%</span></td>
+<td><span class="hl-green">+0.5%</span></td>
+<td><span class="hl-green">+0.5%</span> (still open)</td>
+<td>$29.58 / $20.71 / $32.54</td>
+</tr>
+<tr>
+<td>AGIO</td>
+<td>76/100</td>
+<td>2026-07-28 (5d)</td>
+<td>1×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$36.97 / $25.88 / $40.67</td>
+</tr>
+<tr>
 <td>AGM</td>
 <td>75/100</td>
-<td>2026-06-18 (20d)</td>
-<td>1×</td>
-<td><span class="hl-green">+9.2%</span></td>
+<td>2026-06-18 (45d)</td>
+<td>11×</td>
+<td><span class="hl-green">+13.9%</span></td>
 <td><span class="hl-red">-0.2%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$183.47 / $128.43 / $201.82</td>
@@ -1260,341 +1491,141 @@ em { color: #555; }
 <tr>
 <td>AGX</td>
 <td>74/100</td>
-<td>2026-06-18 (20d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
-<td><span class="hl-red">-10.2%</span></td>
-<td><span class="hl-red">-10.2%</span></td>
-<td><span class="hl-red">-10.2%</span> (still open)</td>
+<td><span class="hl-red">-26.6%</span></td>
+<td><span class="hl-red">-26.6%</span></td>
+<td><span class="hl-red">-30.0%</span> (stopped out)</td>
 <td>$738.85 / $517.19 / $812.73</td>
+</tr>
+<tr>
+<td>AGYS</td>
+<td>73/100</td>
+<td>2026-07-28 (5d)</td>
+<td>1×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$103.24 / $72.27 / $113.56</td>
+</tr>
+<tr>
+<td>AHR</td>
+<td>75/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$57.44 / $40.21 / $63.18</td>
+</tr>
+<tr>
+<td>AIR</td>
+<td>84/100</td>
+<td>2026-07-26 (7d)</td>
+<td>10×</td>
+<td><span class="hl-green">+6.1%</span></td>
+<td><span class="hl-green">+6.1%</span></td>
+<td><span class="hl-green">+6.1%</span> (still open)</td>
+<td>$129.05 / $90.34 / $141.96</td>
+</tr>
+<tr>
+<td>AIT</td>
+<td>67/100</td>
+<td>2026-07-26 (7d)</td>
+<td>5×</td>
+<td><span class="hl-green">+0.6%</span></td>
+<td><span class="hl-green">+0.6%</span></td>
+<td><span class="hl-green">+0.6%</span> (still open)</td>
+<td>$347.06 / $242.94 / $381.77</td>
 </tr>
 <tr>
 <td>ALGN</td>
 <td>73/100</td>
-<td>2026-06-12 (26d)</td>
+<td>2026-06-12 (51d)</td>
 <td>1×</td>
-<td><span class="hl-green">+5.9%</span></td>
-<td><span class="hl-red">-3.6%</span></td>
-<td><span class="hl-green">+5.9%</span> (still open)</td>
+<td><span class="hl-red">-3.9%</span></td>
+<td><span class="hl-red">-4.5%</span></td>
+<td><span class="hl-red">-3.9%</span> (still open)</td>
 <td>$174.84 / $122.39 / $192.32</td>
 </tr>
 <tr>
-<td>AMAT</td>
-<td>88/100</td>
-<td>2026-06-27 (11d)</td>
+<td>ALGT</td>
+<td>72/100</td>
+<td>2026-07-26 (7d)</td>
+<td>10×</td>
+<td><span class="hl-green">+1.1%</span></td>
+<td><span class="hl-green">+1.1%</span></td>
+<td><span class="hl-green">+1.1%</span> (still open)</td>
+<td>$98.08 / $68.66 / $107.89</td>
+</tr>
+<tr>
+<td>ALK</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
 <td>3×</td>
-<td><span class="hl-red">-11.5%</span></td>
-<td><span class="hl-red">-11.5%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$626.84 / $438.79 / $689.52</td>
+<td><span class="hl-green">+3.0%</span></td>
+<td><span class="hl-green">+3.0%</span></td>
+<td><span class="hl-green">+3.0%</span> (still open)</td>
+<td>$46.13 / $32.29 / $50.74</td>
 </tr>
 <tr>
-<td>ANRO</td>
-<td>81/100</td>
-<td>2026-07-09 (0d)</td>
-<td>2×</td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$25.70 / $17.99 / $28.27</td>
-</tr>
-<tr>
-<td>ASX</td>
-<td>86/100</td>
-<td>2026-07-06 (2d)</td>
-<td>1×</td>
-<td><span class="hl-red">-8.5%</span></td>
-<td><span class="hl-red">-8.5%</span></td>
-<td><span class="hl-red">-8.5%</span> (still open)</td>
-<td>$43.32 / $30.32 / $47.65</td>
-</tr>
-<tr>
-<td>ATEX</td>
-<td>83/100</td>
-<td>2026-06-27 (11d)</td>
-<td>1×</td>
-<td><span class="hl-green">+12.5%</span></td>
-<td><span class="hl-green">+9.6%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$89.67 / $62.77 / $98.64</td>
-</tr>
-<tr>
-<td>AUPH</td>
-<td>88/100</td>
-<td>2026-06-12 (26d)</td>
-<td>6×</td>
-<td><span class="hl-green">+2.5%</span></td>
-<td><span class="hl-red">-2.1%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$15.85 / $11.10 / $17.43</td>
-</tr>
-<tr>
-<td>AYA</td>
-<td>91/100</td>
-<td>2026-06-18 (20d)</td>
-<td>3×</td>
-<td><span class="hl-red">-5.5%</span></td>
-<td><span class="hl-red">-13.9%</span></td>
-<td><span class="hl-red">-5.5%</span> (still open)</td>
-<td>$19.88 / $13.92 / $21.87</td>
-</tr>
-<tr>
-<td>BAND</td>
-<td>82/100</td>
-<td>2026-07-09 (0d)</td>
-<td>3×</td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$67.56 / $47.29 / $74.32</td>
-</tr>
-<tr>
-<td>BB</td>
-<td>82/100</td>
-<td>2026-06-27 (11d)</td>
-<td>3×</td>
-<td><span class="hl-red">-2.6%</span></td>
-<td><span class="hl-red">-2.6%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$11.40 / $7.98 / $12.54</td>
-</tr>
-<tr>
-<td>CART</td>
-<td>78/100</td>
-<td>2026-07-09 (0d)</td>
-<td>1×</td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$48.08 / $33.66 / $52.89</td>
-</tr>
-<tr>
-<td>CAVA</td>
-<td>71/100</td>
-<td>2026-06-13 (26d)</td>
-<td>3×</td>
-<td><span class="hl-red">-23.4%</span></td>
-<td><span class="hl-red">-23.4%</span></td>
-<td><span class="hl-red">-23.4%</span> (still open)</td>
-<td>$90.99 / $63.69 / $100.09</td>
-</tr>
-<tr>
-<td>CGNX</td>
-<td>86/100</td>
-<td>2026-07-06 (2d)</td>
-<td>1×</td>
-<td><span class="hl-red">-7.6%</span></td>
-<td><span class="hl-red">-7.6%</span></td>
-<td><span class="hl-red">-7.6%</span> (still open)</td>
-<td>$69.49 / $48.64 / $76.44</td>
-</tr>
-<tr>
-<td>CTRN</td>
-<td>81/100</td>
-<td>2026-06-13 (26d)</td>
-<td>4×</td>
-<td><span class="hl-green">+12.6%</span></td>
-<td><span class="hl-green">+9.1%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$50.64 / $35.45 / $55.70</td>
-</tr>
-<tr>
-<td>CYD</td>
-<td>82/100</td>
-<td>2026-06-18 (20d)</td>
-<td>1×</td>
-<td><span class="hl-red">-3.9%</span></td>
-<td><span class="hl-red">-10.9%</span></td>
-<td><span class="hl-red">-3.9%</span> (still open)</td>
-<td>$48.70 / $34.09 / $53.57</td>
-</tr>
-<tr>
-<td>DRTS</td>
-<td>70/100</td>
-<td>2026-06-27 (11d)</td>
-<td>1×</td>
-<td><span class="hl-green">+17.2%</span></td>
-<td><span class="hl-green">+3.1%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$10.88 / $7.62 / $11.97</td>
-</tr>
-<tr>
-<td>DSY</td>
-<td>65/100</td>
-<td>2026-07-09 (0d)</td>
-<td>3×</td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$4.59 / $3.21 / $5.05</td>
-</tr>
-<tr>
-<td>ECG</td>
-<td>82/100</td>
-<td>2026-06-18 (20d)</td>
-<td>1×</td>
-<td><span class="hl-red">-15.4%</span></td>
-<td><span class="hl-red">-15.4%</span></td>
-<td><span class="hl-red">-15.4%</span> (still open)</td>
-<td>$157.71 / $110.40 / $173.48</td>
-</tr>
-<tr>
-<td>ELDN</td>
-<td>79/100</td>
-<td>2026-07-09 (0d)</td>
-<td>2×</td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$3.93 / $2.75 / $4.32</td>
-</tr>
-<tr>
-<td>EVR</td>
-<td>86/100</td>
-<td>2026-06-12 (26d)</td>
-<td>6×</td>
-<td><span class="hl-red">-2.9%</span></td>
-<td><span class="hl-red">-6.3%</span></td>
-<td><span class="hl-red">-2.3%</span> (still open)</td>
-<td>$355.10 / $248.57 / $390.61</td>
-</tr>
-<tr>
-<td>FCFS</td>
-<td>80/100</td>
-<td>2026-07-09 (0d)</td>
-<td>2×</td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$223.25 / $156.27 / $245.58</td>
-</tr>
-<tr>
-<td>FIX</td>
-<td>82/100</td>
-<td>2026-06-18 (20d)</td>
-<td>1×</td>
-<td><span class="hl-red">-14.4%</span></td>
-<td><span class="hl-red">-14.4%</span></td>
-<td><span class="hl-red">-14.4%</span> (still open)</td>
-<td>$1967.41 / $1377.19 / $2164.15</td>
-</tr>
-<tr>
-<td>GHM</td>
-<td>87/100</td>
-<td>2026-07-06 (2d)</td>
-<td>2×</td>
-<td><span class="hl-red">-8.5%</span></td>
-<td><span class="hl-red">-8.5%</span></td>
-<td><span class="hl-red">-8.5%</span> (still open)</td>
-<td>$115.95 / $81.16 / $127.54</td>
-</tr>
-<tr>
-<td>HLIT</td>
-<td>82/100</td>
-<td>2026-06-18 (20d)</td>
-<td>1×</td>
-<td><span class="hl-red">-10.9%</span></td>
-<td><span class="hl-red">-10.9%</span></td>
-<td><span class="hl-red">-10.9%</span> (still open)</td>
-<td>$15.08 / $10.56 / $16.59</td>
-</tr>
-<tr>
-<td>INSW</td>
-<td>77/100</td>
-<td>2026-06-12 (26d)</td>
+<td>ALKS</td>
+<td>74/100</td>
+<td>2026-07-26 (7d)</td>
 <td>9×</td>
-<td><span class="hl-green">+3.9%</span></td>
-<td><span class="hl-red">-6.6%</span></td>
-<td><span class="hl-green">+3.2%</span> (still open)</td>
-<td>$82.56 / $57.79 / $90.82</td>
+<td><span class="hl-red">-0.3%</span></td>
+<td><span class="hl-red">-0.3%</span></td>
+<td><span class="hl-red">-0.3%</span> (still open)</td>
+<td>$52.89 / $37.02 / $58.18</td>
 </tr>
 <tr>
-<td>IOVA</td>
-<td>78/100</td>
-<td>2026-07-09 (0d)</td>
-<td>1×</td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$4.35 / $3.04 / $4.78</td>
-</tr>
-<tr>
-<td>KB</td>
-<td>80/100</td>
-<td>2026-07-06 (2d)</td>
-<td>2×</td>
-<td><span class="hl-green">+1.4%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+1.4%</span> (still open)</td>
-<td>$113.91 / $79.74 / $125.30</td>
-</tr>
-<tr>
-<td>KLAC</td>
-<td>88/100</td>
-<td>2026-06-27 (11d)</td>
-<td>1×</td>
-<td><span class="hl-red">-12.9%</span></td>
-<td><span class="hl-red">-12.9%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$248.64 / $174.05 / $273.50</td>
-</tr>
-<tr>
-<td>LC</td>
-<td>85/100</td>
-<td>2026-07-06 (2d)</td>
-<td>1×</td>
-<td><span class="hl-red">-1.2%</span></td>
-<td><span class="hl-red">-1.2%</span></td>
-<td><span class="hl-red">-1.2%</span> (still open)</td>
-<td>$19.73 / $13.81 / $21.70</td>
-</tr>
-<tr>
-<td>LQDA</td>
-<td>79/100</td>
-<td>2026-07-09 (0d)</td>
+<td>ALLE</td>
+<td>67/100</td>
+<td>2026-07-26 (7d)</td>
 <td>3×</td>
+<td><span class="hl-green">+3.1%</span></td>
+<td><span class="hl-green">+3.1%</span></td>
+<td><span class="hl-green">+3.1%</span> (still open)</td>
+<td>$153.36 / $107.35 / $168.70</td>
+</tr>
+<tr>
+<td>ALMS</td>
+<td>77/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
+<td><span class="hl-red">-3.3%</span></td>
+<td><span class="hl-red">-3.3%</span></td>
+<td><span class="hl-red">-3.3%</span> (still open)</td>
+<td>$28.00 / $19.60 / $30.80</td>
+</tr>
+<tr>
+<td>ALNT</td>
+<td>81/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$81.23 / $56.86 / $89.35</td>
+<td>$86.78 / $60.75 / $95.46</td>
 </tr>
 <tr>
-<td>LRCX</td>
-<td>88/100</td>
-<td>2026-06-27 (11d)</td>
-<td>1×</td>
-<td><span class="hl-red">-14.0%</span></td>
-<td><span class="hl-red">-14.0%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$379.09 / $265.36 / $417.00</td>
-</tr>
-<tr>
-<td>MAMA</td>
-<td>88/100</td>
-<td>2026-07-06 (2d)</td>
-<td>2×</td>
-<td><span class="hl-red">-1.4%</span></td>
-<td><span class="hl-red">-1.4%</span></td>
-<td><span class="hl-red">-1.4%</span> (still open)</td>
-<td>$18.65 / $13.05 / $20.51</td>
-</tr>
-<tr>
-<td>MOD</td>
-<td>86/100</td>
-<td>2026-06-18 (20d)</td>
-<td>1×</td>
-<td><span class="hl-red">-22.5%</span></td>
-<td><span class="hl-red">-22.5%</span></td>
-<td><span class="hl-red">-22.5%</span> (still open)</td>
-<td>$297.37 / $208.16 / $327.11</td>
+<td>AMAL</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
+<td>5×</td>
+<td><span class="hl-red">-0.9%</span></td>
+<td><span class="hl-red">-0.9%</span></td>
+<td><span class="hl-red">-0.9%</span> (still open)</td>
+<td>$49.44 / $34.61 / $54.38</td>
 </tr>
 <tr>
 <td><strong>Total (avg of 50)</strong></td>
-<td><strong>78/100</strong></td>
+<td><strong>72/100</strong></td>
 <td></td>
 <td></td>
-<td><strong><span class="hl-red">-2.4%</span></strong></td>
-<td><strong><span class="hl-red">-6.3%</span></strong></td>
-<td><strong><span class="hl-red">-0.6%</span></strong></td>
+<td><strong><span class="hl-red">-2.1%</span></strong></td>
+<td><strong><span class="hl-red">-5.9%</span></strong></td>
+<td><strong><span class="hl-red">-1.0%</span></strong></td>
 <td></td>
 </tr>
 </tbody>
@@ -1612,15 +1643,15 @@ em { color: #555; }
 <tbody>
 <tr>
 <td>All positives</td>
-<td>16</td>
-<td><span class="hl-green">+159.2%</span></td>
-<td><span class="hl-green">+21.8%</span></td>
+<td>22</td>
+<td><span class="hl-green">+135.9%</span></td>
+<td><span class="hl-green">+23.9%</span></td>
 </tr>
 <tr>
 <td>All negatives</td>
-<td>26</td>
-<td><span class="hl-red">-281.0%</span></td>
-<td><span class="hl-red">-339.3%</span></td>
+<td>23</td>
+<td><span class="hl-red">-241.9%</span></td>
+<td><span class="hl-red">-316.5%</span></td>
 </tr>
 </tbody>
 </table>
@@ -1639,19 +1670,19 @@ em { color: #555; }
 <tbody>
 <tr>
 <td>Best</td>
-<td>ACAD</td>
-<td>65/100</td>
-<td><span class="hl-green">+21.2%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
+<td>ADPT</td>
+<td>81/100</td>
+<td><span class="hl-green">+28.6%</span></td>
+<td><span class="hl-red">-1.7%</span></td>
 <td><span class="hl-green">+10.0%</span></td>
 </tr>
 <tr>
 <td>Worst</td>
-<td>AEHR</td>
-<td>66/100</td>
-<td><span class="hl-red">-41.9%</span></td>
-<td><span class="hl-red">-41.9%</span></td>
-<td><span class="hl-red">-30.0%</span></td>
+<td>AEVA</td>
+<td>57/100</td>
+<td><span class="hl-red">-36.3%</span></td>
+<td><span class="hl-red">-39.1%</span></td>
+<td><span class="hl-green">+10.0%</span></td>
 </tr>
 </tbody>
 </table>
@@ -1669,31 +1700,31 @@ em { color: #555; }
 <tbody>
 <tr>
 <td>short-term high growth</td>
-<td>9</td>
-<td><span class="hl-red">-2.8%</span></td>
-<td><span class="hl-red">-6.3%</span></td>
-<td><span class="hl-red">-0.3%</span></td>
+<td>6</td>
+<td><span class="hl-red">-7.6%</span></td>
+<td><span class="hl-red">-11.8%</span></td>
+<td><span class="hl-red">-0.7%</span></td>
 </tr>
 <tr>
 <td>short-term</td>
-<td>27</td>
-<td><span class="hl-red">-0.2%</span></td>
-<td><span class="hl-red">-5.4%</span></td>
-<td><span class="hl-green">+2.3%</span></td>
+<td>21</td>
+<td><span class="hl-red">-1.8%</span></td>
+<td><span class="hl-red">-7.0%</span></td>
+<td><span class="hl-red">-0.6%</span></td>
 </tr>
 <tr>
 <td>medium-term</td>
-<td>9</td>
-<td><span class="hl-red">-8.3%</span></td>
-<td><span class="hl-red">-10.8%</span></td>
-<td><span class="hl-red">-8.1%</span></td>
+<td>19</td>
+<td><span class="hl-red">-1.9%</span></td>
+<td><span class="hl-red">-4.4%</span></td>
+<td><span class="hl-red">-2.3%</span></td>
 </tr>
 <tr>
 <td>additional</td>
-<td>5</td>
-<td><span class="hl-red">-3.5%</span></td>
-<td><span class="hl-red">-3.5%</span></td>
-<td><span class="hl-red">-3.5%</span></td>
+<td>4</td>
+<td><span class="hl-green">+3.0%</span></td>
+<td><span class="hl-green">+2.3%</span></td>
+<td><span class="hl-green">+3.0%</span></td>
 </tr>
 </tbody>
 </table>
@@ -1703,7 +1734,7 @@ em { color: #555; }
 <p>Pick accuracy = the % of a scan's picks that later reached <strong>+10%</strong> at any point. Only runs ≥21 days old are scored (they've had time to play out). Weight changes are recorded in the audit log.</p>
 </blockquote>
 <ul>
-<li><strong>Weights last changed:</strong> 2026-07-06</li>
-<li>Not enough runs on both sides of the change to compare yet. Recent accuracy overall: 35%.</li>
-<li><strong>Most recent evaluable run</strong> (2026-06-17): 100% of 1 picks reached +10%.</li>
+<li><strong>Weights last changed:</strong> 2026-07-25</li>
+<li>Not enough runs on both sides of the change to compare yet. Recent accuracy overall: 30%.</li>
+<li><strong>Most recent evaluable run</strong> (2026-07-09): 18% of 22 picks reached +10%.</li>
 </ul></body></html>

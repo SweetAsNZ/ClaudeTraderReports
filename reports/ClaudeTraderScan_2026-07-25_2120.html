@@ -13,10 +13,16 @@ body { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-se
 .scan-meta { flex:1; text-align:right; }
 .scan-meta .scan-title { font-size:1.1em; font-weight:700; color:#1e4ec9; margin:0 0 2px; }
 .scan-meta .scan-sub { font-size:0.88em; color:#555; margin:0; }
-h1 { font-size: 1.45em; color: #0b3d91; border-bottom: 3px solid #0b3d91;
-     padding-bottom: 6px; margin-top: 1.4em; display:none; }
+h1 { font-size: 1.55em; color: #0b3d91; border-bottom: 3px solid #0b3d91;
+     padding-bottom: 6px; margin-top: 1.6em; margin-bottom: 0.4em; display:block; }
 h2 { font-size: 1.15em; background: #0b3d91; color: #ffffff; padding: 8px 12px;
      border-radius: 6px; margin-top: 1.6em; }
+/* Score-banded pick header colours — tell the reader at a glance how strong each pick is */
+h2.score-90plus { background: #14532d; }   /* 90+  — exceptional   */
+h2.score-80plus { background: #166534; }   /* 80–89 — very strong  */
+h2.score-70plus { background: #3a7d44; }   /* 70–79 — strong       */
+h2.score-60plus { background: #b45309; }   /* 60–69 — moderate     */
+h2.score-low    { background: #7f1d1d; }   /* <60  — weak          */
 blockquote { background: #fff8e1; border-left: 4px solid #f0a500; margin: 12px 0;
              padding: 8px 14px; border-radius: 0 6px 6px 0; color: #5d4a00; }
 table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.92em; }
@@ -28,11 +34,36 @@ ul { padding-left: 22px; }
 li { margin: 3px 0; }
 hr { border: none; border-top: 2px solid #d0d7e2; margin: 24px 0; }
 em { color: #555; }
-.ind { padding: 1px 6px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
-.ind-good   { background: #d4edda; color: #000; }   /* good   */
-.ind-bad    { background: #f8d7da; color: #000; }   /* bad    */
-.ind-warn   { background: #fff3cd; color: #000; }   /* warning*/
-.ind-normal { background: #ffffff; color: #000; border: 1px solid #d0d7e2; } /* normal */
+.ind { padding: 1px 6px; border-radius: 4px; font-weight: 600; white-space: nowrap;
+       cursor: help; }                                /* cursor:help → pointer hints tooltip */
+.ind-good   { background: #d4edda; color: #000; }
+.ind-bad    { background: #f8d7da; color: #000; }
+.ind-warn   { background: #fff3cd; color: #000; }
+.ind-normal { background: #ffffff; color: #000; border: 1px solid #d0d7e2; }
+/* Score pill shown inside each pick header */
+.score-pill { display:inline-block; padding:1px 8px; border-radius:10px;
+              font-size:0.85em; font-weight:700; margin-left:4px; }
+.score-pill-90plus { background:#bbf7d0; color:#14532d; }
+.score-pill-80plus { background:#bbf7d0; color:#166534; }
+.score-pill-70plus { background:#d1fae5; color:#065f46; }
+.score-pill-60plus { background:#fed7aa; color:#7c2d12; }
+.score-pill-low    { background:#fecaca; color:#7f1d1d; }
+/* Horizon / timeframe pill */
+.hz { display:inline-block; padding:1px 8px; border-radius:10px;
+      font-size:0.82em; font-weight:600; margin-left:4px;
+      cursor:help; }                                  /* tooltip hint on hover */
+.hz-ultra   { background:#fee2e2; color:#7f1d1d; }   /* ultra short-term — highest risk */
+.hz-growth  { background:#fde68a; color:#7c2d12; }   /* short-term high growth          */
+.hz-short   { background:#fef3c7; color:#92400e; }   /* short-term                      */
+.hz-medium  { background:#dbeafe; color:#1e3a8a; }   /* medium-term                     */
+.hz-long    { background:#d1fae5; color:#065f46; }   /* long-term                       */
+/* Trade plan: stop = red, target = green */
+.tp-stop   { background:#fecaca; color:#7f1d1d; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
+.tp-target { background:#d1fae5; color:#065f46; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
+.tp-entry  { background:#e0e7ff; color:#1e1b4b; padding:1px 5px; border-radius:3px;
+             font-weight:600; cursor:help; }
 /* Highlighter badges for [GREEN]/[RED]/[YELLOW] report markup */
 .hl-green  { background: #d4edda; color: #000; padding: 1px 5px; border-radius: 3px; }
 .hl-red    { background: #f8d7da; color: #000; padding: 1px 5px; border-radius: 3px; }
@@ -70,10 +101,10 @@ em { color: #555; }
 <blockquote>
 <p>Longer-window candidates targeting <strong>10%+ upside over 1-6 months</strong>, with a <strong>6-12 month hold lens</strong> when fundamentals and sentiment remain strong. This list intentionally uses lower technical weighting and higher fundamental + sentiment emphasis.</p>
 </blockquote>
-<h2>1. TEST — score 72.5/100 (medium-term: 6–12 months)</h2>
+<h2 class="score-70plus">1. TEST — score <span class="score-pill score-pill-70plus" title="Score out of 100: 90+ exceptional · 80+ very strong · 70+ strong · 60+ moderate · below 60 weak">72.5</span>/100 (<span class="hz hz-medium" title="Medium-term: 6–12 months">medium-term</span>: 6–12 months)</h2>
 <p><strong>Test Corp</strong> | Tech / Software | Close $10.00 | fwd P/E 15.0 | Avg vol 1.2M sh/day (~$12M/day)</p>
 <p><strong>Timeframe:</strong> 1-6 months to target +10%; longer-term hold window 6-12 months if fundamentals and sentiment remain supportive<br />
-<strong>Indicators:</strong> <span class="ind ind-good">RSI 57</span> · <span class="ind ind-good">MACD +0.120</span> · <span class="ind ind-good">MACD hist +0.030</span> · <span class="ind ind-normal">Risk 2.5%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
+<strong>Indicators:</strong> <span class="ind ind-good" title="RSI (Relative Strength Index): 0-100 momentum gauge. <30 = oversold (stock beaten down, may bounce back). 30-70 = normal healthy range. >70 = overbought (too many buyers, may pull back).">RSI 57</span> · <span class="ind ind-good" title="MACD: measures trend momentum. Positive = price is in an uptrend. Negative = price is in a downtrend. The bigger the number, the stronger the trend.">MACD +0.120</span> · <span class="ind ind-good" title="MACD Histogram: how fast the trend is building or fading. Positive and rising = momentum is increasing (bullish). Negative and falling = trend is weakening (bearish). A flip from negative to positive is an early buy signal.">MACD hist +0.030</span> · <span class="ind ind-normal" title="Risk %/day (ATR): average daily price swing as a % of price. <2% = calm stock, small daily moves. 2-4% = active stock, moderate swings. >4% = high volatility — big potential gains but also big potential losses.">Risk 2.5%/day (active)</span>  <em>(see glossary at the end for what these mean)</em><br />
 <strong>Analyst view:</strong> <span class="hl-green">7 buy</span> / 1 hold / 0 sell — consensus target $12.00 (<span class="hl-green">+20%</span>)<br />
 <strong>Entry / target:</strong> buy near $10.00, target $11.00 (+10%)<br />
 <strong>Suggested action:</strong> <span class="hl-green">Buy Maybe / Wait</span><br />
@@ -95,10 +126,10 @@ em { color: #555; }
 <ul>
 <li>None flagged</li>
 </ul>
-<p><strong>Trade plan — stop loss $7.00 (−30%):</strong> Entry ~$10.00 · Target $11.00 (+10%)<br />
+<p><strong>Trade plan — stop loss <span class="tp-stop" title="Stop-loss: if the price falls to this level, sell to limit your loss (maximum 30% loss rule)">$7.00</span> (−30%):</strong> Entry ~<span class="tp-entry" title="Entry price: the price you would buy at">$10.00</span> · Target <span class="tp-target" title="Target price: this is where you plan to sell for a profit">$11.00</span> (+10%)<br />
   Position $1,000 (100 sh) · Risk value $300.00 · Reward value $100.00 · Risk/Reward 0.3</p>
 <hr />
-<h2>How to read the suggested actions</h2>
+<h2 class="score-low">How to read the suggested actions</h2>
 <table>
 <thead>
 <tr>
@@ -134,7 +165,7 @@ em { color: #555; }
 </tbody>
 </table>
 <p>Sell ratings apply only to stocks you already hold; this scanner surfaces buy candidates and does not track your portfolio. Nothing here is financial advice.</p>
-<h2>What the signals mean (plain English)</h2>
+<h2 class="score-low">What the signals mean (plain English)</h2>
 <h3>The indicator numbers shown under each pick</h3>
 <table>
 <thead>
@@ -240,98 +271,158 @@ em { color: #555; }
 <tbody>
 <tr>
 <td>360.AX</td>
-<td>74/100</td>
-<td>2026-06-17 (38d)</td>
-<td>3×</td>
-<td><span class="hl-green">+0.4%</span></td>
+<td>62/100</td>
+<td>2026-06-17 (46d)</td>
+<td>4×</td>
+<td><span class="hl-green">+11.6%</span></td>
 <td><span class="hl-red">-2.7%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>A$22.77 / A$15.94 / A$25.05</td>
 </tr>
 <tr>
 <td>4DX.AX</td>
-<td>58/100</td>
-<td>2026-07-02 (23d)</td>
+<td>71/100</td>
+<td>2026-07-02 (31d)</td>
+<td>2×</td>
+<td><span class="hl-red">-10.6%</span></td>
+<td><span class="hl-red">-23.4%</span></td>
+<td><span class="hl-green">+10.0%</span> (target hit)</td>
+<td>A$3.63 / A$2.54 / A$3.99</td>
+</tr>
+<tr>
+<td>A</td>
+<td>64/100</td>
+<td>2026-07-26 (7d)</td>
+<td>4×</td>
+<td><span class="hl-red">-0.1%</span></td>
+<td><span class="hl-red">-0.5%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$138.37 / $96.86 / $152.21</td>
+</tr>
+<tr>
+<td>A2M.AX</td>
+<td>62/100</td>
+<td>2026-08-01 (1d)</td>
 <td>1×</td>
-<td><span class="hl-red">-23.4%</span></td>
-<td><span class="hl-red">-23.4%</span></td>
-<td><span class="hl-green">+10.1%</span> (target hit)</td>
-<td>A$4.06 / A$2.84 / A$4.47</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>A$6.89 / A$4.82 / A$7.58</td>
+</tr>
+<tr>
+<td>AA</td>
+<td>72/100</td>
+<td>2026-07-26 (7d)</td>
+<td>8×</td>
+<td><span class="hl-green">+2.3%</span></td>
+<td><span class="hl-red">-3.1%</span></td>
+<td><span class="hl-green">+2.3%</span> (still open)</td>
+<td>$44.24 / $30.97 / $48.66</td>
+</tr>
+<tr>
+<td>AAI.AX</td>
+<td>77/100</td>
+<td>2026-07-26 (7d)</td>
+<td>8×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-red">-4.4%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>A$64.24 / A$44.97 / A$70.66</td>
+</tr>
+<tr>
+<td>AAL</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
+<td>3×</td>
+<td><span class="hl-green">+5.5%</span></td>
+<td><span class="hl-green">+2.5%</span></td>
+<td><span class="hl-green">+5.5%</span> (still open)</td>
+<td>$14.48 / $10.14 / $15.93</td>
 </tr>
 <tr>
 <td>AAMI</td>
-<td>73/100</td>
-<td>2026-06-18 (37d)</td>
-<td>6×</td>
-<td><span class="hl-green">+7.6%</span></td>
+<td>70/100</td>
+<td>2026-06-18 (45d)</td>
+<td>16×</td>
+<td><span class="hl-green">+15.1%</span></td>
 <td><span class="hl-red">-7.2%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$75.15 / $52.61 / $82.67</td>
 </tr>
 <tr>
 <td>AAP</td>
-<td>61/100</td>
-<td>2026-06-13 (42d)</td>
-<td>4×</td>
-<td><span class="hl-red">-8.2%</span></td>
+<td>62/100</td>
+<td>2026-06-13 (50d)</td>
+<td>5×</td>
+<td><span class="hl-red">-8.7%</span></td>
 <td><span class="hl-red">-14.4%</span></td>
-<td><span class="hl-red">-8.2%</span> (still open)</td>
+<td><span class="hl-red">-8.7%</span> (still open)</td>
 <td>$60.80 / $42.56 / $66.88</td>
 </tr>
 <tr>
 <td>AAPL</td>
-<td>84/100</td>
-<td>2026-07-06 (19d)</td>
-<td>2×</td>
-<td><span class="hl-green">+6.5%</span></td>
+<td>70/100</td>
+<td>2026-07-06 (27d)</td>
+<td>12×</td>
+<td><span class="hl-green">+7.8%</span></td>
 <td><span class="hl-red">-0.6%</span></td>
-<td><span class="hl-green">+6.5%</span> (still open)</td>
+<td><span class="hl-green">+7.8%</span> (still open)</td>
 <td>$312.66 / $218.86 / $343.93</td>
 </tr>
 <tr>
 <td>AAUC</td>
 <td>83/100</td>
-<td>2026-07-17 (8d)</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
-<td><span class="hl-green">+0.2%</span></td>
+<td><span class="hl-green">+0.1%</span></td>
 <td><span class="hl-red">-2.0%</span></td>
-<td><span class="hl-green">+0.2%</span> (still open)</td>
+<td><span class="hl-green">+0.1%</span> (still open)</td>
 <td>$20.82 / $14.57 / $22.90</td>
 </tr>
 <tr>
 <td>ABAT</td>
 <td>82/100</td>
-<td>2026-07-17 (8d)</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
+<td><span class="hl-red">-3.8%</span></td>
 <td><span class="hl-red">-6.4%</span></td>
-<td><span class="hl-red">-6.4%</span></td>
-<td><span class="hl-red">-6.4%</span> (still open)</td>
+<td><span class="hl-red">-3.8%</span> (still open)</td>
 <td>$2.36 / $1.65 / $2.60</td>
 </tr>
 <tr>
 <td>ABCL</td>
 <td>76/100</td>
-<td>2026-07-17 (8d)</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
-<td><span class="hl-red">-17.9%</span></td>
-<td><span class="hl-red">-17.9%</span></td>
-<td><span class="hl-red">-17.9%</span> (still open)</td>
+<td><span class="hl-red">-18.8%</span></td>
+<td><span class="hl-red">-18.8%</span></td>
+<td><span class="hl-red">-18.8%</span> (still open)</td>
 <td>$6.47 / $4.53 / $7.11</td>
 </tr>
 <tr>
 <td>ABEO</td>
 <td>83/100</td>
-<td>2026-07-17 (8d)</td>
+<td>2026-07-17 (16d)</td>
 <td>2×</td>
+<td><span class="hl-red">-12.4%</span></td>
 <td><span class="hl-red">-13.6%</span></td>
-<td><span class="hl-red">-13.6%</span></td>
-<td><span class="hl-red">-13.6%</span> (still open)</td>
+<td><span class="hl-red">-12.4%</span> (still open)</td>
 <td>$7.00 / $4.90 / $7.70</td>
+</tr>
+<tr>
+<td>ABG</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
+<td>3×</td>
+<td><span class="hl-green">+0.6%</span></td>
+<td><span class="hl-green">+0.6%</span></td>
+<td><span class="hl-green">+0.6%</span> (still open)</td>
+<td>$225.24 / $157.67 / $247.76</td>
 </tr>
 <tr>
 <td>ABSI</td>
 <td>78/100</td>
-<td>2026-07-17 (8d)</td>
+<td>2026-07-17 (16d)</td>
 <td>1×</td>
 <td><span class="hl-red">-8.9%</span></td>
 <td><span class="hl-red">-8.9%</span></td>
@@ -341,77 +432,107 @@ em { color: #555; }
 <tr>
 <td>ABUS</td>
 <td>62/100</td>
-<td>2026-06-18 (37d)</td>
+<td>2026-06-18 (45d)</td>
 <td>2×</td>
-<td><span class="hl-red">-3.7%</span></td>
+<td><span class="hl-red">-3.1%</span></td>
 <td><span class="hl-red">-4.8%</span></td>
 <td><span class="hl-green">+10.1%</span> (target hit)</td>
 <td>$4.55 / $3.19 / $5.01</td>
 </tr>
 <tr>
+<td>ABX</td>
+<td>68/100</td>
+<td>2026-07-26 (7d)</td>
+<td>10×</td>
+<td><span class="hl-green">+0.8%</span></td>
+<td><span class="hl-green">+0.8%</span></td>
+<td><span class="hl-green">+0.8%</span> (still open)</td>
+<td>$10.38 / $7.27 / $11.42</td>
+</tr>
+<tr>
 <td>ACA</td>
-<td>72/100</td>
-<td>2026-06-12 (43d)</td>
-<td>2×</td>
-<td><span class="hl-green">+12.0%</span></td>
+<td>61/100</td>
+<td>2026-06-12 (51d)</td>
+<td>12×</td>
+<td><span class="hl-green">+12.2%</span></td>
 <td><span class="hl-red">-0.8%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$129.51 / $90.66 / $142.46</td>
 </tr>
 <tr>
 <td>ACAD</td>
-<td>78/100</td>
-<td>2026-06-18 (37d)</td>
-<td>2×</td>
-<td><span class="hl-green">+14.9%</span></td>
+<td>67/100</td>
+<td>2026-06-18 (45d)</td>
+<td>12×</td>
+<td><span class="hl-green">+17.4%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$21.62 / $15.13 / $23.78</td>
 </tr>
 <tr>
+<td>ACHC</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
+<td>5×</td>
+<td><span class="hl-red">-5.8%</span></td>
+<td><span class="hl-red">-5.8%</span></td>
+<td><span class="hl-red">-5.8%</span> (still open)</td>
+<td>$34.51 / $24.16 / $37.96</td>
+</tr>
+<tr>
 <td>ACHV</td>
 <td>74/100</td>
-<td>2026-07-17 (8d)</td>
-<td>1×</td>
+<td>2026-07-17 (16d)</td>
+<td>10×</td>
+<td><span class="hl-red">-1.4%</span></td>
 <td><span class="hl-red">-2.7%</span></td>
-<td><span class="hl-red">-2.7%</span></td>
-<td><span class="hl-red">-2.7%</span> (still open)</td>
+<td><span class="hl-red">-1.4%</span> (still open)</td>
 <td>$6.27 / $4.39 / $6.90</td>
 </tr>
 <tr>
+<td>ACNB</td>
+<td>66/100</td>
+<td>2026-07-25 (7d)</td>
+<td>11×</td>
+<td><span class="hl-green">+3.1%</span></td>
+<td><span class="hl-green">+3.1%</span></td>
+<td><span class="hl-green">+3.1%</span> (still open)</td>
+<td>$62.10 / $43.47 / $68.31</td>
+</tr>
+<tr>
 <td>ACRS</td>
-<td>68/100</td>
-<td>2026-07-17 (8d)</td>
-<td>1×</td>
+<td>73/100</td>
+<td>2026-07-17 (16d)</td>
+<td>11×</td>
+<td><span class="hl-red">-5.5%</span></td>
 <td><span class="hl-red">-7.9%</span></td>
-<td><span class="hl-red">-7.9%</span></td>
-<td><span class="hl-red">-7.9%</span> (still open)</td>
+<td><span class="hl-red">-5.5%</span> (still open)</td>
 <td>$5.68 / $3.98 / $6.25</td>
 </tr>
 <tr>
 <td>ADAM</td>
 <td>70/100</td>
-<td>2026-06-12 (43d)</td>
+<td>2026-06-12 (51d)</td>
 <td>2×</td>
-<td><span class="hl-red">-7.1%</span></td>
+<td><span class="hl-red">-6.4%</span></td>
 <td><span class="hl-red">-7.7%</span></td>
-<td><span class="hl-red">-7.1%</span> (still open)</td>
+<td><span class="hl-red">-6.4%</span> (still open)</td>
 <td>$9.31 / $6.52 / $10.24</td>
 </tr>
 <tr>
 <td>ADEA</td>
 <td>68/100</td>
-<td>2026-06-12 (43d)</td>
+<td>2026-06-12 (51d)</td>
 <td>4×</td>
-<td><span class="hl-red">-18.7%</span></td>
+<td><span class="hl-red">-18.4%</span></td>
 <td><span class="hl-red">-20.5%</span></td>
-<td><span class="hl-red">-18.7%</span> (still open)</td>
+<td><span class="hl-red">-18.4%</span> (still open)</td>
 <td>$31.92 / $22.34 / $35.11</td>
 </tr>
 <tr>
 <td>ADI</td>
 <td>61/100</td>
-<td>2026-06-12 (43d)</td>
+<td>2026-06-12 (51d)</td>
 <td>10×</td>
 <td><span class="hl-red">-11.0%</span></td>
 <td><span class="hl-red">-11.0%</span></td>
@@ -420,10 +541,10 @@ em { color: #555; }
 </tr>
 <tr>
 <td>ADPT</td>
-<td>79/100</td>
-<td>2026-06-18 (37d)</td>
-<td>2×</td>
-<td><span class="hl-green">+27.0%</span></td>
+<td>81/100</td>
+<td>2026-06-18 (45d)</td>
+<td>12×</td>
+<td><span class="hl-green">+28.6%</span></td>
 <td><span class="hl-red">-1.7%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$17.53 / $12.27 / $19.28</td>
@@ -431,9 +552,9 @@ em { color: #555; }
 <tr>
 <td>ADUR</td>
 <td>92/100</td>
-<td>2026-06-13 (42d)</td>
+<td>2026-06-13 (50d)</td>
 <td>10×</td>
-<td><span class="hl-red">-9.1%</span></td>
+<td><span class="hl-red">-5.4%</span></td>
 <td><span class="hl-red">-10.0%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$14.20 / $9.94 / $15.62</td>
@@ -441,9 +562,9 @@ em { color: #555; }
 <tr>
 <td>AEHR</td>
 <td>66/100</td>
-<td>2026-06-18 (37d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
-<td><span class="hl-red">-32.9%</span></td>
+<td><span class="hl-red">-32.8%</span></td>
 <td><span class="hl-red">-41.9%</span></td>
 <td><span class="hl-red">-30.0%</span> (stopped out)</td>
 <td>$115.30 / $80.71 / $126.83</td>
@@ -451,29 +572,69 @@ em { color: #555; }
 <tr>
 <td>AEIS</td>
 <td>81/100</td>
-<td>2026-06-12 (43d)</td>
+<td>2026-06-12 (51d)</td>
 <td>3×</td>
+<td><span class="hl-red">-17.6%</span></td>
 <td><span class="hl-red">-20.8%</span></td>
-<td><span class="hl-red">-20.8%</span></td>
-<td><span class="hl-red">-20.8%</span> (still open)</td>
+<td><span class="hl-red">-17.6%</span> (still open)</td>
 <td>$354.37 / $248.06 / $389.81</td>
+</tr>
+<tr>
+<td>AER</td>
+<td>70/100</td>
+<td>2026-07-28 (5d)</td>
+<td>1×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$151.40 / $105.98 / $166.54</td>
 </tr>
 <tr>
 <td>AEVA</td>
 <td>57/100</td>
-<td>2026-06-18 (37d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
-<td><span class="hl-red">-34.8%</span></td>
-<td><span class="hl-red">-34.8%</span></td>
+<td><span class="hl-red">-36.3%</span></td>
+<td><span class="hl-red">-39.1%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$24.39 / $17.07 / $26.83</td>
 </tr>
 <tr>
+<td>AGEN</td>
+<td>74/100</td>
+<td>2026-07-25 (7d)</td>
+<td>12×</td>
+<td><span class="hl-green">+2.5%</span></td>
+<td><span class="hl-green">+2.5%</span></td>
+<td><span class="hl-green">+2.5%</span> (still open)</td>
+<td>$5.98 / $4.19 / $6.58</td>
+</tr>
+<tr>
+<td>AGI</td>
+<td>87/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
+<td><span class="hl-green">+0.5%</span></td>
+<td><span class="hl-green">+0.5%</span></td>
+<td><span class="hl-green">+0.5%</span> (still open)</td>
+<td>$29.58 / $20.71 / $32.54</td>
+</tr>
+<tr>
+<td>AGIO</td>
+<td>76/100</td>
+<td>2026-07-28 (5d)</td>
+<td>1×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$36.97 / $25.88 / $40.67</td>
+</tr>
+<tr>
 <td>AGM</td>
 <td>75/100</td>
-<td>2026-06-18 (37d)</td>
-<td>1×</td>
-<td><span class="hl-green">+12.3%</span></td>
+<td>2026-06-18 (45d)</td>
+<td>11×</td>
+<td><span class="hl-green">+13.9%</span></td>
 <td><span class="hl-red">-0.2%</span></td>
 <td><span class="hl-green">+10.0%</span> (target hit)</td>
 <td>$183.47 / $128.43 / $201.82</td>
@@ -481,271 +642,141 @@ em { color: #555; }
 <tr>
 <td>AGX</td>
 <td>74/100</td>
-<td>2026-06-18 (37d)</td>
+<td>2026-06-18 (45d)</td>
 <td>1×</td>
-<td><span class="hl-red">-18.5%</span></td>
-<td><span class="hl-red">-25.9%</span></td>
+<td><span class="hl-red">-26.6%</span></td>
+<td><span class="hl-red">-26.6%</span></td>
 <td><span class="hl-red">-30.0%</span> (stopped out)</td>
 <td>$738.85 / $517.19 / $812.73</td>
 </tr>
 <tr>
+<td>AGYS</td>
+<td>73/100</td>
+<td>2026-07-28 (5d)</td>
+<td>1×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$103.24 / $72.27 / $113.56</td>
+</tr>
+<tr>
+<td>AHR</td>
+<td>75/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span></td>
+<td><span class="hl-green">+0.0%</span> (still open)</td>
+<td>$57.44 / $40.21 / $63.18</td>
+</tr>
+<tr>
+<td>AIR</td>
+<td>84/100</td>
+<td>2026-07-26 (7d)</td>
+<td>10×</td>
+<td><span class="hl-green">+6.1%</span></td>
+<td><span class="hl-green">+6.1%</span></td>
+<td><span class="hl-green">+6.1%</span> (still open)</td>
+<td>$129.05 / $90.34 / $141.96</td>
+</tr>
+<tr>
+<td>AIT</td>
+<td>67/100</td>
+<td>2026-07-26 (7d)</td>
+<td>5×</td>
+<td><span class="hl-green">+0.6%</span></td>
+<td><span class="hl-green">+0.6%</span></td>
+<td><span class="hl-green">+0.6%</span> (still open)</td>
+<td>$347.06 / $242.94 / $381.77</td>
+</tr>
+<tr>
 <td>ALGN</td>
 <td>73/100</td>
-<td>2026-06-12 (43d)</td>
+<td>2026-06-12 (51d)</td>
 <td>1×</td>
-<td><span class="hl-green">+0.1%</span></td>
-<td><span class="hl-red">-3.6%</span></td>
-<td><span class="hl-green">+0.1%</span> (still open)</td>
+<td><span class="hl-red">-3.9%</span></td>
+<td><span class="hl-red">-4.5%</span></td>
+<td><span class="hl-red">-3.9%</span> (still open)</td>
 <td>$174.84 / $122.39 / $192.32</td>
 </tr>
 <tr>
-<td>AMAT</td>
-<td>88/100</td>
-<td>2026-06-27 (28d)</td>
+<td>ALGT</td>
+<td>72/100</td>
+<td>2026-07-26 (7d)</td>
+<td>10×</td>
+<td><span class="hl-green">+1.1%</span></td>
+<td><span class="hl-green">+1.1%</span></td>
+<td><span class="hl-green">+1.1%</span> (still open)</td>
+<td>$98.08 / $68.66 / $107.89</td>
+</tr>
+<tr>
+<td>ALK</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
 <td>3×</td>
-<td><span class="hl-red">-16.1%</span></td>
-<td><span class="hl-red">-16.1%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$626.84 / $438.79 / $689.52</td>
+<td><span class="hl-green">+3.0%</span></td>
+<td><span class="hl-green">+3.0%</span></td>
+<td><span class="hl-green">+3.0%</span> (still open)</td>
+<td>$46.13 / $32.29 / $50.74</td>
 </tr>
 <tr>
-<td>ANRO</td>
-<td>84/100</td>
-<td>2026-07-09 (16d)</td>
+<td>ALKS</td>
+<td>74/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
+<td><span class="hl-red">-0.3%</span></td>
+<td><span class="hl-red">-0.3%</span></td>
+<td><span class="hl-red">-0.3%</span> (still open)</td>
+<td>$52.89 / $37.02 / $58.18</td>
+</tr>
+<tr>
+<td>ALLE</td>
+<td>67/100</td>
+<td>2026-07-26 (7d)</td>
 <td>3×</td>
-<td><span class="hl-red">-6.3%</span></td>
-<td><span class="hl-red">-6.3%</span></td>
-<td><span class="hl-red">-6.3%</span> (still open)</td>
-<td>$27.64 / $19.35 / $30.40</td>
-</tr>
-<tr>
-<td>ASX</td>
-<td>82/100</td>
-<td>2026-07-06 (19d)</td>
-<td>2×</td>
-<td><span class="hl-red">-14.8%</span></td>
-<td><span class="hl-red">-14.8%</span></td>
-<td><span class="hl-red">-14.8%</span> (still open)</td>
-<td>$43.32 / $30.32 / $47.65</td>
-</tr>
-<tr>
-<td>ATEX</td>
-<td>83/100</td>
-<td>2026-06-27 (28d)</td>
-<td>1×</td>
-<td><span class="hl-green">+13.6%</span></td>
-<td><span class="hl-green">+4.8%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$89.67 / $62.77 / $98.64</td>
-</tr>
-<tr>
-<td>ATLC</td>
-<td>88/100</td>
-<td>2026-07-13 (12d)</td>
-<td>2×</td>
-<td><span class="hl-green">+1.3%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+1.3%</span> (still open)</td>
-<td>$96.61 / $67.63 / $106.27</td>
-</tr>
-<tr>
-<td>AUPH</td>
-<td>88/100</td>
-<td>2026-06-12 (43d)</td>
-<td>6×</td>
-<td><span class="hl-red">-3.6%</span></td>
-<td><span class="hl-red">-3.6%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$15.85 / $11.10 / $17.43</td>
-</tr>
-<tr>
-<td>AYA</td>
-<td>87/100</td>
-<td>2026-06-18 (37d)</td>
-<td>4×</td>
-<td><span class="hl-red">-7.2%</span></td>
-<td><span class="hl-red">-13.9%</span></td>
-<td><span class="hl-red">-7.2%</span> (still open)</td>
-<td>$19.88 / $13.92 / $21.87</td>
-</tr>
-<tr>
-<td>BAND</td>
-<td>78/100</td>
-<td>2026-07-09 (16d)</td>
-<td>4×</td>
-<td><span class="hl-red">-12.3%</span></td>
-<td><span class="hl-red">-12.3%</span></td>
-<td><span class="hl-red">-12.3%</span> (still open)</td>
-<td>$78.44 / $54.91 / $86.28</td>
-</tr>
-<tr>
-<td>BB</td>
-<td>82/100</td>
-<td>2026-06-27 (28d)</td>
-<td>3×</td>
-<td><span class="hl-red">-22.5%</span></td>
-<td><span class="hl-red">-22.5%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$11.40 / $7.98 / $12.54</td>
-</tr>
-<tr>
-<td>BMRC</td>
-<td>84/100</td>
-<td>2026-07-21 (4d)</td>
-<td>1×</td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span></td>
-<td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$28.59 / $20.01 / $31.45</td>
-</tr>
-<tr>
-<td>CART</td>
-<td>78/100</td>
-<td>2026-07-09 (16d)</td>
-<td>1×</td>
-<td><span class="hl-red">-3.2%</span></td>
-<td><span class="hl-red">-5.1%</span></td>
-<td><span class="hl-red">-3.2%</span> (still open)</td>
-<td>$48.28 / $33.80 / $53.11</td>
-</tr>
-<tr>
-<td>CAVA</td>
-<td>71/100</td>
-<td>2026-06-13 (42d)</td>
-<td>3×</td>
-<td><span class="hl-red">-30.2%</span></td>
-<td><span class="hl-red">-30.2%</span></td>
-<td><span class="hl-red">-30.0%</span> (stopped out)</td>
-<td>$90.99 / $63.69 / $100.09</td>
-</tr>
-<tr>
-<td>CGNX</td>
-<td>86/100</td>
-<td>2026-07-06 (19d)</td>
-<td>1×</td>
-<td><span class="hl-red">-9.2%</span></td>
-<td><span class="hl-red">-9.2%</span></td>
-<td><span class="hl-red">-9.2%</span> (still open)</td>
-<td>$69.49 / $48.64 / $76.44</td>
-</tr>
-<tr>
-<td>CMPR</td>
-<td>80/100</td>
-<td>2026-07-13 (12d)</td>
-<td>1×</td>
 <td><span class="hl-green">+3.1%</span></td>
-<td><span class="hl-red">-1.4%</span></td>
+<td><span class="hl-green">+3.1%</span></td>
 <td><span class="hl-green">+3.1%</span> (still open)</td>
-<td>$99.90 / $69.93 / $109.89</td>
+<td>$153.36 / $107.35 / $168.70</td>
 </tr>
 <tr>
-<td>CTRN</td>
-<td>80/100</td>
-<td>2026-06-13 (42d)</td>
-<td>5×</td>
-<td><span class="hl-green">+29.6%</span></td>
-<td><span class="hl-green">+9.1%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$50.64 / $35.45 / $55.70</td>
+<td>ALMS</td>
+<td>77/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
+<td><span class="hl-red">-3.3%</span></td>
+<td><span class="hl-red">-3.3%</span></td>
+<td><span class="hl-red">-3.3%</span> (still open)</td>
+<td>$28.00 / $19.60 / $30.80</td>
 </tr>
 <tr>
-<td>CYD</td>
-<td>82/100</td>
-<td>2026-06-18 (37d)</td>
-<td>1×</td>
-<td><span class="hl-red">-10.2%</span></td>
-<td><span class="hl-red">-10.9%</span></td>
-<td><span class="hl-red">-10.2%</span> (still open)</td>
-<td>$48.70 / $34.09 / $53.57</td>
-</tr>
-<tr>
-<td>DELL</td>
-<td>87/100</td>
-<td>2026-07-13 (12d)</td>
-<td>1×</td>
-<td><span class="hl-red">-10.6%</span></td>
-<td><span class="hl-red">-10.6%</span></td>
-<td><span class="hl-red">-10.6%</span> (still open)</td>
-<td>$427.11 / $298.98 / $469.82</td>
-</tr>
-<tr>
-<td>DRTS</td>
-<td>90/100</td>
-<td>2026-06-27 (28d)</td>
-<td>2×</td>
-<td><span class="hl-green">+23.8%</span></td>
-<td><span class="hl-green">+3.1%</span></td>
-<td><span class="hl-green">+10.0%</span> (target hit)</td>
-<td>$10.88 / $7.62 / $11.97</td>
-</tr>
-<tr>
-<td>DSY</td>
-<td>65/100</td>
-<td>2026-07-09 (16d)</td>
-<td>3×</td>
-<td><span class="hl-red">-34.8%</span></td>
-<td><span class="hl-red">-34.8%</span></td>
-<td><span class="hl-red">-30.0%</span> (stopped out)</td>
-<td>$4.34 / $3.04 / $4.77</td>
-</tr>
-<tr>
-<td>ECG</td>
-<td>82/100</td>
-<td>2026-06-18 (37d)</td>
-<td>1×</td>
-<td><span class="hl-red">-16.6%</span></td>
-<td><span class="hl-red">-16.6%</span></td>
-<td><span class="hl-red">-16.6%</span> (still open)</td>
-<td>$157.71 / $110.40 / $173.48</td>
-</tr>
-<tr>
-<td>ELDN</td>
-<td>79/100</td>
-<td>2026-07-09 (16d)</td>
-<td>2×</td>
-<td><span class="hl-red">-6.5%</span></td>
-<td><span class="hl-red">-7.0%</span></td>
-<td><span class="hl-red">-6.5%</span> (still open)</td>
-<td>$4.13 / $2.89 / $4.54</td>
-</tr>
-<tr>
-<td>EVR</td>
-<td>86/100</td>
-<td>2026-06-12 (43d)</td>
-<td>6×</td>
-<td><span class="hl-red">-6.7%</span></td>
-<td><span class="hl-red">-7.4%</span></td>
-<td><span class="hl-red">-6.1%</span> (still open)</td>
-<td>$355.10 / $248.57 / $390.61</td>
-</tr>
-<tr>
-<td>FCFS</td>
-<td>80/100</td>
-<td>2026-07-09 (16d)</td>
-<td>2×</td>
-<td><span class="hl-red">-5.3%</span></td>
-<td><span class="hl-red">-5.3%</span></td>
-<td><span class="hl-red">-5.3%</span> (still open)</td>
-<td>$221.42 / $154.99 / $243.56</td>
-</tr>
-<tr>
-<td>FEIM</td>
-<td>98/100</td>
-<td>2026-07-21 (4d)</td>
-<td>1×</td>
+<td>ALNT</td>
+<td>81/100</td>
+<td>2026-07-26 (7d)</td>
+<td>9×</td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span></td>
 <td><span class="hl-green">+0.0%</span> (still open)</td>
-<td>$66.72 / $46.70 / $73.39</td>
+<td>$86.78 / $60.75 / $95.46</td>
+</tr>
+<tr>
+<td>AMAL</td>
+<td>66/100</td>
+<td>2026-07-26 (7d)</td>
+<td>5×</td>
+<td><span class="hl-red">-0.9%</span></td>
+<td><span class="hl-red">-0.9%</span></td>
+<td><span class="hl-red">-0.9%</span> (still open)</td>
+<td>$49.44 / $34.61 / $54.38</td>
 </tr>
 <tr>
 <td><strong>Total (avg of 50)</strong></td>
-<td><strong>78/100</strong></td>
+<td><strong>72/100</strong></td>
 <td></td>
 <td></td>
-<td><strong><span class="hl-red">-6.2%</span></strong></td>
-<td><strong><span class="hl-red">-10.1%</span></strong></td>
-<td><strong><span class="hl-red">-3.6%</span></strong></td>
+<td><strong><span class="hl-red">-2.1%</span></strong></td>
+<td><strong><span class="hl-red">-5.9%</span></strong></td>
+<td><strong><span class="hl-red">-1.0%</span></strong></td>
 <td></td>
 </tr>
 </tbody>
@@ -763,15 +794,15 @@ em { color: #555; }
 <tbody>
 <tr>
 <td>All positives</td>
-<td>14</td>
-<td><span class="hl-green">+152.6%</span></td>
-<td><span class="hl-green">+17.0%</span></td>
+<td>22</td>
+<td><span class="hl-green">+135.9%</span></td>
+<td><span class="hl-green">+23.9%</span></td>
 </tr>
 <tr>
 <td>All negatives</td>
-<td>34</td>
-<td><span class="hl-red">-461.8%</span></td>
-<td><span class="hl-red">-519.6%</span></td>
+<td>23</td>
+<td><span class="hl-red">-241.9%</span></td>
+<td><span class="hl-red">-316.5%</span></td>
 </tr>
 </tbody>
 </table>
@@ -790,18 +821,18 @@ em { color: #555; }
 <tbody>
 <tr>
 <td>Best</td>
-<td>CTRN</td>
-<td>80/100</td>
-<td><span class="hl-green">+29.6%</span></td>
-<td><span class="hl-green">+9.1%</span></td>
+<td>ADPT</td>
+<td>81/100</td>
+<td><span class="hl-green">+28.6%</span></td>
+<td><span class="hl-red">-1.7%</span></td>
 <td><span class="hl-green">+10.0%</span></td>
 </tr>
 <tr>
 <td>Worst</td>
 <td>AEVA</td>
 <td>57/100</td>
-<td><span class="hl-red">-34.8%</span></td>
-<td><span class="hl-red">-34.8%</span></td>
+<td><span class="hl-red">-36.3%</span></td>
+<td><span class="hl-red">-39.1%</span></td>
 <td><span class="hl-green">+10.0%</span></td>
 </tr>
 </tbody>
@@ -820,31 +851,31 @@ em { color: #555; }
 <tbody>
 <tr>
 <td>short-term high growth</td>
-<td>9</td>
-<td><span class="hl-red">-15.9%</span></td>
-<td><span class="hl-red">-16.9%</span></td>
-<td><span class="hl-red">-7.2%</span></td>
+<td>6</td>
+<td><span class="hl-red">-7.6%</span></td>
+<td><span class="hl-red">-11.8%</span></td>
+<td><span class="hl-red">-0.7%</span></td>
 </tr>
 <tr>
 <td>short-term</td>
-<td>31</td>
-<td><span class="hl-red">-2.2%</span></td>
-<td><span class="hl-red">-7.5%</span></td>
-<td><span class="hl-red">-0.2%</span></td>
+<td>21</td>
+<td><span class="hl-red">-1.8%</span></td>
+<td><span class="hl-red">-7.0%</span></td>
+<td><span class="hl-red">-0.6%</span></td>
 </tr>
 <tr>
 <td>medium-term</td>
-<td>8</td>
-<td><span class="hl-red">-10.7%</span></td>
-<td><span class="hl-red">-12.8%</span></td>
-<td><span class="hl-red">-11.9%</span></td>
+<td>19</td>
+<td><span class="hl-red">-1.9%</span></td>
+<td><span class="hl-red">-4.4%</span></td>
+<td><span class="hl-red">-2.3%</span></td>
 </tr>
 <tr>
 <td>additional</td>
-<td>2</td>
-<td><span class="hl-red">-6.2%</span></td>
-<td><span class="hl-red">-7.2%</span></td>
-<td><span class="hl-red">-6.2%</span></td>
+<td>4</td>
+<td><span class="hl-green">+3.0%</span></td>
+<td><span class="hl-green">+2.3%</span></td>
+<td><span class="hl-green">+3.0%</span></td>
 </tr>
 </tbody>
 </table>
@@ -855,6 +886,6 @@ em { color: #555; }
 </blockquote>
 <ul>
 <li><strong>Weights last changed:</strong> 2026-07-25</li>
-<li>Not enough runs on both sides of the change to compare yet. Recent accuracy overall: 35%.</li>
-<li><strong>Most recent evaluable run</strong> (2026-07-02): 0% of 2 picks reached +10%.</li>
+<li>Not enough runs on both sides of the change to compare yet. Recent accuracy overall: 30%.</li>
+<li><strong>Most recent evaluable run</strong> (2026-07-09): 18% of 22 picks reached +10%.</li>
 </ul></body></html>
